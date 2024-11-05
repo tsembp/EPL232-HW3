@@ -1,2 +1,3 @@
-# EPL232-HW3
-EPL232 Assignment 3 - Panagiotis Tsembekis &amp; Rafael Tsekouronas
+# EPL232 - Assignment 3
+
+A collaborative project by Panagiotis Tsembekis &amp; Rafael Tsekouronas
