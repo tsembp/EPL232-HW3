@@ -14,16 +14,15 @@ int initStack(STACK **stack)
 int initNode(NODE **newNode, int **square, int row, int col, int size)
 {
     *newNode = (NODE *)malloc(sizeof(NODE));
-    if (*newNode == NULL)
-        return EXIT_FAILURE;
+    if (*newNode == NULL) return EXIT_FAILURE;
 
     (*newNode)->row = row;
     (*newNode)->col = col;
+    (*newNode)->arraySize = size;
 
     // Allocate memory for the 2D array
     (*newNode)->square = (int **)malloc(size * sizeof(int *));
-    if ((*newNode)->square == NULL)
-    { // handle improper memory allocation
+    if ((*newNode)->square == NULL){ // handle improper memory allocation
         perror("Error: Memory allocation for new node's 2D array rows failed.\n");
         free(*newNode);
         *newNode = NULL;
@@ -93,21 +92,18 @@ NODE* pop(STACK *stack)
     return temp;
 }
 
-void freeNode(NODE *node)
-{
-    if (node != NULL)
-    {
-        // Free the 2D array 'square' if it's allocated
-        if (node->square != NULL)
-        {
-            for (int i = 0; i < node->row; i++)
-            {
-                free(node->square[i]);
+void freeNode(NODE *node){
+    if (node != NULL) {
+        if (node->square != NULL) {
+            for (int i = 0; i < node->arraySize; i++) {
+                if (node->square[i] != NULL) {
+                    free(node->square[i]);
+                }
             }
             free(node->square);
         }
-        // Free the node itself
-        free(node);
+
+    free(node);
     }
 }
 
@@ -115,31 +111,31 @@ bool isEmpty(STACK *stack){
     return (stack->length == 0);
 }
 
-void printNode(NODE *node, int size){
+void printNode(NODE *node){
     if(node == NULL){
         printf("Can't print node. Node is NULL!\n");
         return;
     }
 
     // Print top border for the node
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < node->arraySize; i++) {
         printf("+-----");
     }
     printf("+\n");
 
     // Iterate over the 2D array and print each element with borders
-    for (int i = 0; i < node->row; i++) {
-        for (int j = 0; j < node->col; j++) {
+    for (int i = 0; i < node->arraySize; i++) {
+        for (int j = 0; j < node->arraySize; j++) {
             if (node->square[i][j] < 0) { // negative values printed inside parentheses
                 printf("| (%d) ", -node->square[i][j]);
             } else { // normal values
                 printf("|  %d  ", node->square[i][j]);
             }
         }
-        printf("|\n"); // End the row
+        printf("|\n"); // end the row
 
         // Print bottom border for the current row
-        for (int k = 0; k < size; k++) {
+        for (int k = 0; k < node->arraySize; k++) {
             printf("+-----");
         }
         printf("+\n");
@@ -158,7 +154,7 @@ void printStack(STACK *stack, int size) {
 
     while (current != NULL) {
         printf("Node (row: %d, col: %d):\n", current->row, current->col);
-        printNode(current, size); // print node's contents
+        printNode(current); // print node's contents
 
         printf("\n"); // separate nodes with a blank line
         current = current->next;

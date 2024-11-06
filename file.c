@@ -2,7 +2,7 @@
 #define N 9
 
 int **readLatinSquare(const char *filename, int *size)
-{
+{   
     // Open file for reading
     FILE *fp = fopen(filename, "r");
 

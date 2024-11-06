@@ -8,6 +8,7 @@ typedef struct node {
     int **square; 
     int row; 
     int col; 
+    int arraySize;
     struct node *next; 
 } NODE; 
 
@@ -23,7 +24,7 @@ NODE* pop(STACK *stack);
 void freeNode(NODE *node);
 bool isEmpty(STACK *stack);
 void printStack(STACK *stack, int size);
-void printNode(NODE *node, int size);
+void printNode(NODE *node);
 
 
 #endif // STACK_H

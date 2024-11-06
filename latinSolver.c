@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     }
 
     const char *fileName = argv[1];
-    int *size = 0;
+    int size;
     int **tableau = readLatinSquare(fileName, &size);
     if (tableau == NULL)
     {
@@ -22,12 +22,25 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    STACK *stack = NULL;
-    if (initStack(&stack) == EXIT_FAILURE)
-    {
-        perror("Error initializing stack.");
-        return 1;
+    NODE *node = NULL;
+    initNode(&node, tableau, 0, 0, size);
+    printNode(node);
+
+    // STACK *stack = NULL;
+    // if (initStack(&stack) == EXIT_FAILURE)
+    // {
+    //     perror("Error initializing stack.");
+    //     return 1;
+    // }
+
+    // Free the 2D array created by readLatinSquare
+    for (int i = 0; i < size; i++) {
+        free(tableau[i]);
     }
+    free(tableau);
+
+    // Free the node created by initNode
+    freeNode(node);
 
     return 0;
 }
