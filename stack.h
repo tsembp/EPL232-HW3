@@ -19,9 +19,11 @@ typedef struct stack{
 int initStack(STACK **stack);
 int initNode(NODE **newNode, int **square, int row, int col, int size);
 int push(STACK *stack, NODE *newNode);
-int pop(STACK *stack, NODE *retVal);
+NODE* pop(STACK *stack);
 void freeNode(NODE *node);
-void printStack(STACK *stack);
+bool isEmpty(STACK *stack);
+void printStack(STACK *stack, int size);
+void printNode(NODE *node, int size);
 
 
 #endif // STACK_H

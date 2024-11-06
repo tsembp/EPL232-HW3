@@ -78,27 +78,19 @@ int push(STACK *stack, NODE *newNode)
     return EXIT_SUCCESS;
 }
 
-int pop(STACK *stack, NODE *retNode)
+NODE* pop(STACK *stack)
 {
     if (stack == NULL || stack->length == 0)
     {
         perror("Unable to pop from stack | Empty or NULL stack.\n");
-        return EXIT_FAILURE;
-    }
-
-    if (retNode == NULL)
-    {
-        perror("Unable to pop from stack | Return node is NULL.\n");
-        return EXIT_FAILURE;
+        return NULL;
     }
 
     NODE *temp = stack->top;
-    retNode = stack->top;
     stack->top = temp->next;
     (stack->length)--;
-    freeNode(temp);
 
-    return EXIT_SUCCESS;
+    return temp;
 }
 
 void freeNode(NODE *node)
@@ -119,33 +111,58 @@ void freeNode(NODE *node)
     }
 }
 
-void printStack(STACK *stack)
-{
-    if (isEmpty(stack))
-    {
+bool isEmpty(STACK *stack){
+    return (stack->length == 0);
+}
+
+void printNode(NODE *node, int size){
+    if(node == NULL){
+        printf("Can't print node. Node is NULL!\n");
+        return;
+    }
+
+    // Print top border for the node
+    for (int i = 0; i < size; i++) {
+        printf("+-----");
+    }
+    printf("+\n");
+
+    // Iterate over the 2D array and print each element with borders
+    for (int i = 0; i < node->row; i++) {
+        for (int j = 0; j < node->col; j++) {
+            if (node->square[i][j] < 0) { // negative values printed inside parentheses
+                printf("| (%d) ", -node->square[i][j]);
+            } else { // normal values
+                printf("|  %d  ", node->square[i][j]);
+            }
+        }
+        printf("|\n"); // End the row
+
+        // Print bottom border for the current row
+        for (int k = 0; k < size; k++) {
+            printf("+-----");
+        }
+        printf("+\n");
+
+    }
+}
+
+void printStack(STACK *stack, int size) {
+    if (isEmpty(stack)) {
         printf("Stack is empty!\n");
         return;
     }
 
-    NODE *current = stack->top;
+    NODE *current = stack->top; // start from top element
     printf("Stack elements (from top to bottom):\n");
 
-    while (current != NULL)
-    {
+    while (current != NULL) {
         printf("Node (row: %d, col: %d):\n", current->row, current->col);
+        printNode(current, size); // print node's contents
 
-        // Iterate over the 2D array and print each element
-        for (int i = 0; i < current->row; i++)
-        {
-            for (int j = 0; j < current->col; j++)
-            {
-                printf("%d ", current->square[i][j]);
-            }
-
-            printf("\n"); // New line after each row
-        }
-
-        printf("\n"); // Separate nodes with a blank line
+        printf("\n"); // separate nodes with a blank line
         current = current->next;
     }
+
 }
+
