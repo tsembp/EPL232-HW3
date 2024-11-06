@@ -9,6 +9,46 @@ int initStack(STACK **stack){
     return EXIT_SUCCESS;
 }
 
+int initNode(NODE **newNode, int **square, int row, int col, int size) {
+    *newNode = (NODE *) malloc(sizeof(NODE));
+    if (*newNode == NULL) return EXIT_FAILURE;
+
+    (*newNode)->row = row;
+    (*newNode)->col = col;
+
+    // Allocate memory for the 2D array
+    (*newNode)->square = (int **) malloc(size * sizeof(int *));
+    if ((*newNode)->square == NULL) { // handle improper memory allocation
+        perror("Error: Memory allocation for new node's 2D array rows failed.\n");
+        free(*newNode);
+        *newNode = NULL;
+        return EXIT_FAILURE;
+    }
+
+    for (int i = 0; i < size; i++) {
+        (*newNode)->square[i] = (int *) malloc(size * sizeof(int));
+        if ((*newNode)->square[i] == NULL) {
+            perror("Error: Memory allocation for new node's 2D array columns failed.\n");
+            for (int j = 0; j < i; j++) { // free previously allocated rows
+                free((*newNode)->square[j]);
+            }
+            free((*newNode)->square);
+            free(*newNode); // free newNode itself
+            *newNode = NULL;
+            return EXIT_FAILURE;
+        }
+
+        // Copy each element in the row
+        for (int j = 0; j < size; j++) {
+            (*newNode)->square[i][j] = square[i][j];
+        }
+    }
+
+    (*newNode)->next = NULL; // initialize the next pointer to NULL
+    
+    return EXIT_SUCCESS;
+}
+
 int push(STACK *stack, NODE *newNode){
     if(stack == NULL) {
         perror("Unable to push into stack | Stack is NULL.\n");

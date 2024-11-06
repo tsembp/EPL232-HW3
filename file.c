@@ -8,21 +8,21 @@ int** readLatinSquare(const char *filename, int *size){
     // Check file pointer
     if(fp == NULL){
         perror("Error occurred while attempting to read from file.\n");
-        exit(EXIT_FAILURE); // exit
+        return NULL;
     }
 
     // Check n (size of latin square)
     if(fscanf(fp, "%d", size) != 1 || *size <= 0 || *size > N){ // check fscanf return code and size's value
         perror("Invalid size of Latin Square!\n");
         fclose(fp);
-        exit(EXIT_FAILURE); // close file and exit
+        return NULL; // close file and exit
     }
 
     int** array = (int **) malloc(*size * sizeof(int *));
     if(array == NULL) {
         perror("Memory allocation for rows of 2D array failed.\n");
         fclose(fp);
-        exit(EXIT_FAILURE);
+        return NULL;
     }
 
     for(int i = 0; i < *size; i++) {
@@ -35,7 +35,7 @@ int** readLatinSquare(const char *filename, int *size){
             }
             free(array);
             fclose(fp);
-            exit(EXIT_FAILURE);
+            return NULL;
         }
     }
 
@@ -49,7 +49,7 @@ int** readLatinSquare(const char *filename, int *size){
                 }
                 free(array);
                 fclose(fp);
-                exit(EXIT_FAILURE);
+                return NULL;
             }
         }
     }
