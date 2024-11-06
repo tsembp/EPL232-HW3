@@ -6,4 +6,4 @@
 int** readLatinSquare(const char *filename, int *size);
 void free2DArray(int **array, int size);
 
-#endif FILE_H
+#endif // FILE_H
