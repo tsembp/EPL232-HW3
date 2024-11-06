@@ -1,7 +1,6 @@
 #include "solver.h"
 #include "stack.h"
 
-
 bool puzzleSolver(STACK *stack, int **square, int size){
 
 }

@@ -17,8 +17,8 @@ typedef struct stack{
 } STACK; 
 
 int initStack(STACK **stack);
-int initNode(NODE **node);
-int push(STACK *stack, NODE newNode);
+int initNode(NODE **newNode, int **square, int row, int col, int size);
+int push(STACK *stack, NODE *newNode);
 int pop(STACK *stack, NODE *retVal);
 void freeNode(NODE *node);
 void printStack(STACK *stack);

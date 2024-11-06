@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "file.h"
 #include "stack.h"
+#include "solver.h"
 
 int main(int argc, char* argv[]){
     if(argc != 2){
@@ -25,6 +26,8 @@ int main(int argc, char* argv[]){
     }
 
     
+
+
 
 
 
