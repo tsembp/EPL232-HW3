@@ -28,5 +28,4 @@ bool isSafe(int **square, int row, int col, int num, int size);
  */
 bool findEmptyPosition(int **square, int size, int *row, int *col);
 
-
 #endif // SOLVER_H
