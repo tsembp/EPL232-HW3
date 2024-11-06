@@ -1,4 +1,4 @@
-/**
+/** 
  * @file latinsquare.c
  * @brief Implementation of a Latin Square game.
  * 
@@ -29,20 +29,6 @@
  */
 void readLatinSquare(const char *filename, short square[N][N], int *size);
 
-
-/**
- * @brief Writes the current state of the Latin Square to a file.
- * 
- * The function writes the size and current values of the Latin Square to an output file.
- * The output file name is prefixed with "out-".
- * 
- * @param filename The name of the original input file (used for constructing output file name).
- * @param square 2D array representing the Latin Square.
- * @param size Size of the Latin Square.
- */
-void writeLatinSquare(const char *filename, short square[N][N], int size);
-
-
 /**
  * @brief Displays the Latin Square in a formatted grid.
  * 
@@ -53,43 +39,6 @@ void writeLatinSquare(const char *filename, short square[N][N], int size);
  * @param size Size of the Latin Square.
  */
 void displayLatinSquare(short square[N][N], int size);
-
-
-/**
- * @brief Checks if the user input is valid for the Latin Square.
- * 
- * This function validates the user input (i, j, val) for the Latin Square based on several criteria:
- * - Indices must be within bounds.
- * - Values should not be inserted in pre-given cells.
- * - A value cannot appear more than 'size' times in the square.
- * - Values cannot be repeated in the same row or column.
- * 
- * @param i Row index.
- * @param j Column index.
- * @param val Value to be inserted.
- * @param size Size of the Latin Square.
- * @param square 2D array representing the Latin Square.
- * @return Returns 0 if the input is valid, or 1 if the input is invalid.
- */
-int checkUserInput(int i, int j, int val, int size, short square[N][N]);
-
-
-/**
- * @brief Gets user input for modifying the Latin Square.
- * 
- * This function prompts the user for a command in the format "i,j=val" where:
- * - i, j are the row and column indices (1-based).
- * - val is the value to insert (or 0 to clear).
- * - "0,0=0" saves and exits the game.
- * 
- * @param i Pointer to store the row index.
- * @param j Pointer to store the column index.
- * @param val Pointer to store the value.
- * @param size Size of the Latin Square.
- * @param square 2D array representing the Latin Square.
- */
-void getUserInput(int *i, int *j, int *val, int size, short square[N][N]);
-
 
 /**
  * @brief Main function to play the Latin Square game.
@@ -150,7 +99,7 @@ void readLatinSquare(const char *filename, short square[N][N], int *size){
         fclose(fp);
         exit(EXIT_FAILURE); // close file and exit
     }
-
+    
     // Read numbers of square from file
     for(int i = 0; i < *size; i++){
         for(int j = 0; j < *size; j++){
@@ -175,38 +124,6 @@ void readLatinSquare(const char *filename, short square[N][N], int *size){
     }
 
     fclose(fp); // close file if every check is passed
-}
-
-void writeLatinSquare(const char *filename, short square[N][N], int size){
-    // Construct output file name
-    char outfile[256] = "out-";
-    strcat(outfile, filename);
-
-    // Print messages before exit
-    printf("\n\nSaving to %s...\n", outfile);
-    
-    // Open file for writing
-    FILE *fp = fopen(outfile, "w");
-
-    // Check file pointer
-    if(fp == NULL){
-        perror("\nError while opening output file.\n");
-        exit(EXIT_FAILURE);
-    }
-
-    // Write the size on 1st row
-    fprintf(fp, "%d\n", size);
-
-    // Write the latin square's content
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            if(j > 0){ fprintf(fp, " "); } // space in between numbers
-            fprintf(fp, "%hd", square[i][j]);
-        }
-        fprintf(fp, "\n"); // new line after each row
-    }
-
-    fclose(fp); // close file after finished writing
 }
 
 void displayLatinSquare(short square[N][N], int size){
@@ -293,83 +210,4 @@ int checkUserInput(int i, int j, int val, int size, short square[N][N]){
     }
 
     return 0; // if every check is passed, return 0 for valid input
-}
-
-void getUserInput(int *i, int *j, int *val, int size, short square[N][N]){
-    int validInput = 0; // assume that input is valid
-
-    while(!validInput){
-        // Print the latin square's board
-        displayLatinSquare(square, size);
-
-        // Print input prompt
-        printf("Enter your command in the following format:\n");
-        printf("+ i,j=val: for entering val at position (i,j)\n");
-        printf("+ i,j=0 : for clearing cell (i,j)\n");
-        printf("+ 0,0=0 : for saving and ending the game\n");
-        printf("Notice: i,j,val numbering is from [1..%d]\n>", size);
-
-        // Read values for i, j and val
-        if (scanf("%d,%d=%d", i, j, val) != 3) { // if input values are not exactly 3, the input's format is wrong
-            while (getchar() != '\n') {};
-            printf("\nWrong format of command. Please enter the command as 'i,j=val', where i and j are between 1 and %d, and val is between 0 and %d.\n", size, size);
-        } else{ // otherwise, input is valid
-            validInput = 1;
-        }
-    }
-
-}
-
-void play(short square[N][N], int size, const char *filename){
-
-    int gameOver = 0; // 1 = game had ended -> exit
-    int i = 0, j = 0, val = 0;
-    
-    while(gameOver != 1){
-
-        // Get user's input
-        getUserInput(&i, &j, &val, size, square);
-
-        // Check for 0,0=0 input -> exit game
-        if(i == 0 && j == 0 && val == 0){
-            writeLatinSquare(filename, square, size); // write to output file
-            printf("Done.\n");
-            exit(EXIT_SUCCESS);
-        }
-
-        // Check validity of input
-        while (checkUserInput(i, j, val, size, square) == 1) {
-            // If input is invalid (returns 1), get the user input again
-            getUserInput(&i, &j, &val, size, square);
-        }
-
-        // Execute Move
-        if(val == 0){ // clear cell
-            square[i - 1][j - 1] = 0;   
-            printf("\nValue cleared!\n");
-        } else{ // insert value
-            square[i - 1][j - 1] = val;
-            printf("\nValue inserted!\n");
-        }
-
-        // Check if game is over - board filled
-        int emptyCellCount = 0;
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                if(square[i][j] == 0){
-                    emptyCellCount++;
-                }
-            }
-        }
-
-        if(emptyCellCount == 0){
-            gameOver = 1;
-            printf("\nGame completed!!!\n");
-            displayLatinSquare(square, size);
-            writeLatinSquare(filename, square, size);
-            printf("Done.\n");
-        }
-
-    }
-
 }
