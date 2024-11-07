@@ -92,21 +92,6 @@ NODE* pop(STACK *stack)
     return temp;
 }
 
-void freeNode(NODE *node){
-    if (node != NULL) {
-        if (node->square != NULL) {
-            for (int i = 0; i < node->arraySize; i++) {
-                if (node->square[i] != NULL) {
-                    free(node->square[i]);
-                }
-            }
-            free(node->square);
-        }
-
-    free(node);
-    }
-}
-
 bool isEmpty(STACK *stack){
     return (stack->length == 0);
 }
@@ -162,3 +147,30 @@ void printStack(STACK *stack, int size) {
 
 }
 
+void freeNode(NODE *node){
+    if (node != NULL) {
+        if (node->square != NULL) {
+            for (int i = 0; i < node->arraySize; i++) {
+                if (node->square[i] != NULL) {
+                    free(node->square[i]);
+                }
+            }
+            free(node->square);
+        }
+
+    free(node);
+    }
+}
+
+void freeStack(STACK *stack){
+    if(stack == NULL) return;
+
+    NODE *current = stack->top;
+    while(current != NULL){
+        NODE *next = current->next;
+        freeNode(current);
+        current = next;
+    }
+
+    free(stack);
+}

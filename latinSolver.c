@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     }
 
     NODE *node = NULL;
-    initNode(&node, tableau, 0, 0, size);
+    initNode(&node, tableau, -1, -1, size);
     printNode(node);
 
     // STACK *stack = NULL;
@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
     //     perror("Error initializing stack.");
     //     return 1;
     // }
+    
+
+
 
     // Free the 2D array created by readLatinSquare
     for (int i = 0; i < size; i++) {

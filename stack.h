@@ -21,10 +21,11 @@ int initStack(STACK **stack);
 int initNode(NODE **newNode, int **square, int row, int col, int size);
 int push(STACK *stack, NODE *newNode);
 NODE* pop(STACK *stack);
-void freeNode(NODE *node);
 bool isEmpty(STACK *stack);
 void printStack(STACK *stack, int size);
 void printNode(NODE *node);
+void freeNode(NODE *node);
+void freeStack(STACK *stack);
 
 
 #endif // STACK_H
