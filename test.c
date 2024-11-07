@@ -60,7 +60,7 @@ int main() {
         poppedNode = pop(stack);
         if (poppedNode != NULL) {
             printf("Popped node with row=%d, col=%d\n", poppedNode->row, poppedNode->col);
-            printNode(poppedNode, arraySize);
+            printNode(poppedNode); // too many arguments with arraysize
 
             // Free the popped node's 2D array and the node itself
             for (int i = 0; i < poppedNode->row; i++) {
