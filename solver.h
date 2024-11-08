@@ -3,7 +3,7 @@
 #include "stack.h"
 #include "file.h"
 
-bool puzzleSolver(STACK *stack, int **square, int size);
+bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop);
 
 /**
  * Checks if placing a number at the given row and column is valid in the current Latin square.

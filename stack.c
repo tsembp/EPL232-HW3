@@ -11,7 +11,7 @@ int initStack(STACK **stack)
     return EXIT_SUCCESS;
 }
 
-int initNode(NODE **newNode, int **square, int row, int col, int size)
+int initNode(NODE **newNode, int **board, int row, int col, int size)
 {
     *newNode = (NODE *)malloc(sizeof(NODE));
     if (*newNode == NULL) return EXIT_FAILURE;
@@ -48,7 +48,7 @@ int initNode(NODE **newNode, int **square, int row, int col, int size)
         // Copy each element in the row
         for (int j = 0; j < size; j++)
         {
-            (*newNode)->square[i][j] = square[i][j];
+            (*newNode)->square[i][j] = board[i][j];
         }
     }
 

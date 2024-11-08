@@ -22,16 +22,24 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    NODE *node = NULL;
-    initNode(&node, tableau, -1, -1, size);
-    printNode(node);
+    STACK *stack = NULL;
+    if (initStack(&stack) == EXIT_FAILURE)
+    {
+        perror("Error initializing stack.");
+        return 1;
+    }
 
-    // STACK *stack = NULL;
-    // if (initStack(&stack) == EXIT_FAILURE)
-    // {
-    //     perror("Error initializing stack.");
-    //     return 1;
-    // }
+    int *numPush = 0, *numPop = 0;
+    bool gameResult = puzzleSolver(stack, tableau, size, numPush, numPop);
+
+    // possibly make it 0=good 1=unsolved 2=error allocate
+    if(gameResult){
+        printf("Congrats! Puzzle solved!\n");
+        printf("PUSH NUM: %ls\n", numPush);
+        printf("POP NUM: %ls\n", numPop);
+    } else{
+        printf("Puzzle not solved. (unsolvable or error)\n");
+    }
     
 
 
@@ -41,9 +49,6 @@ int main(int argc, char *argv[])
         free(tableau[i]);
     }
     free(tableau);
-
-    // Free the node created by initNode
-    freeNode(node);
 
     return 0;
 }
