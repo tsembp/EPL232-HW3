@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     }
     
 
-
+    free(stack);
 
     // Free the 2D array created by readLatinSquare
     for (int i = 0; i < size; i++) {
