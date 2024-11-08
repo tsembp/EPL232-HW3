@@ -16,15 +16,15 @@ int main(int argc, char *argv[])
     const char *fileName = argv[1];
     int size;
     int **tableau = readLatinSquare(fileName, &size);
-    if (tableau == NULL)
-    {
+    if(tableau == NULL){
         perror("Failed to initialize puzzle from input file.\n");
         return 1;
     }
 
-    STACK *stack = NULL;
+    STACK *stack;
     if (initStack(&stack) == EXIT_FAILURE)
     {
+        free2DArray(tableau, size);
         perror("Error initializing stack.");
         return 1;
     }
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     int numPush = 0, numPop = 0;
     bool gameResult = puzzleSolver(stack, tableau, size, &numPush, &numPop);
 
-    // possibly make it 0=good 1=unsolved 2=error allocate
+    // Possibly make it 0=good 1=unsolved 2=error allocate
     if(gameResult){
         printf("Congrats! Puzzle solved!\n");
         printf("PUSH NUM: %d\n", numPush);
@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
         printf("Puzzle not solved. (unsolvable or error)\n");
     }
     
-    freeStack(stack);
     free2DArray(tableau, size);
+    freeStack(stack);
 
     return 0;
 }

@@ -1,6 +1,16 @@
 #include "file.h"
 #define N 9
 
+void free2DArray(int **array, int size) {
+    if (array != NULL) {
+        for (int i = 0; i < size; i++) {
+            free(array[i]);
+        }
+        
+        free(array);
+    }
+}
+
 int **readLatinSquare(const char *filename, int *size)
 {   
     // Open file for reading
@@ -36,11 +46,7 @@ int **readLatinSquare(const char *filename, int *size)
         {
             perror("Memory allocation failed for columns.\n");
             // Free previously allocated rows
-            for (int j = 0; j < i; j++)
-            {
-                free(array[j]);
-            }
-            free(array);
+            free2DArray(array, i);
             fclose(fp);
             return NULL;
         }
@@ -54,11 +60,7 @@ int **readLatinSquare(const char *filename, int *size)
             {
                 perror("Error reading data from file.\n");
                 // Free memory on failure
-                for (int k = 0; k <= i; k++)
-                {
-                    free(array[k]);
-                }
-                free(array);
+                free2DArray(array, *size);
                 fclose(fp);
                 return NULL;
             }
@@ -69,10 +71,3 @@ int **readLatinSquare(const char *filename, int *size)
     return array;
 }
 
-void free2DArray(int **array, int size) {
-    if (array == NULL) return;
-    for (int i = 0; i < size; i++) {
-        free(array[i]);
-    }
-    free(array);
-}
