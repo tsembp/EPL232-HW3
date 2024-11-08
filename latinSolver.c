@@ -41,14 +41,8 @@ int main(int argc, char *argv[])
         printf("Puzzle not solved. (unsolvable or error)\n");
     }
     
-
-    free(stack);
-
-    // Free the 2D array created by readLatinSquare
-    for (int i = 0; i < size; i++) {
-        free(tableau[i]);
-    }
-    free(tableau);
+    freeStack(stack);
+    free2DArray(tableau, size);
 
     return 0;
 }

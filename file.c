@@ -69,6 +69,10 @@ int **readLatinSquare(const char *filename, int *size)
     return array;
 }
 
-void free2DArray(int **array, int size)
-{
+void free2DArray(int **array, int size) {
+    if (array == NULL) return;
+    for (int i = 0; i < size; i++) {
+        free(array[i]);
+    }
+    free(array);
 }

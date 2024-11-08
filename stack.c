@@ -163,13 +163,9 @@ void freeNode(NODE *node){
 }
 
 void freeStack(STACK *stack){
-    if(stack == NULL) return;
-
-    NODE *current = stack->top;
-    while(current != NULL){
-        NODE *next = current->next;
-        freeNode(current);
-        current = next;
+    while (!isEmpty(stack)) {
+        NODE *node = pop(stack);
+        freeNode(node);
     }
 
     free(stack);
