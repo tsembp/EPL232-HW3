@@ -26,7 +26,9 @@ bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *s
             (*stepsNum)++;
 
             // Update `square` by modifying its contents (no need to change `square` itself)
-            memcpy(square, node->square, size * sizeof(int*)); // Copy only the content if needed
+            for (int i = 0; i < size; i++) {
+                memcpy(square[i], node->square[i], size * sizeof(int));
+            }
             memset(triedNumbers, 0, (size + 1) * sizeof(int)); // Reset tried numbers for the next cell
             return true; // Placement was successful
         } else {
@@ -68,6 +70,7 @@ bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPo
                 int lastNumTried = poppedNode->square[rowIndex][colIndex];
 
                 freeNode(poppedNode);
+                poppedNode->square = NULL;
                 square[rowIndex][colIndex] = 0; // reset the cell
                 stepsNum++;
                 (*numPop)++;

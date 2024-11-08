@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
         printf("Puzzle not solved. (unsolvable or error)\n");
     }
     
+    free2DArray(tableau, size);
     freeStack(stack);
 
     return 0;
