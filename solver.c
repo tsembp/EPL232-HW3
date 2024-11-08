@@ -4,7 +4,7 @@
 bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop)
 {
     int stepsNum = 1, rowIndex = -1, colIndex = -1;
-    while(findEmptyPosition(square, size, rowIndex, colIndex)){ // while board is not filled
+    while(findEmptyPosition(square, size, &rowIndex, &colIndex)){ // while board is not filled
         for(int i = 1; i <= size; i++){
             if(isSafe(square, rowIndex, colIndex, i, size)){
                 // Initialize new node for new current state
