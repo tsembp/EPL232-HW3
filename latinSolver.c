@@ -29,14 +29,14 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    int *numPush = 0, *numPop = 0;
-    bool gameResult = puzzleSolver(stack, tableau, size, numPush, numPop);
+    int numPush = 0, numPop = 0;
+    bool gameResult = puzzleSolver(stack, tableau, size, &numPush, &numPop);
 
     // possibly make it 0=good 1=unsolved 2=error allocate
     if(gameResult){
         printf("Congrats! Puzzle solved!\n");
-        printf("PUSH NUM: %ls\n", numPush);
-        printf("POP NUM: %ls\n", numPop);
+        printf("PUSH NUM: %d\n", numPush);
+        printf("POP NUM: %d\n", numPop);
     } else{
         printf("Puzzle not solved. (unsolvable or error)\n");
     }

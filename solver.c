@@ -8,8 +8,8 @@ bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPo
         for(int i = 1; i <= size; i++){
             if(isSafe(square, rowIndex, colIndex, i, size)){
                 // Initialize new node for new current state
-                NODE *node  = NULL;
-                if(initNode(node, square, rowIndex, colIndex, size) == EXIT_FAILURE){
+                NODE *node;
+                if(initNode(&node, square, rowIndex, colIndex, size) == EXIT_FAILURE){
                     freeStack(stack);
                     // free 2D array NOMIZO
                     return false;
