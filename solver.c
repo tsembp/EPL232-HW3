@@ -68,9 +68,9 @@ bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPo
                 rowIndex = poppedNode->row;
                 colIndex = poppedNode->col;
                 int lastNumTried = poppedNode->square[rowIndex][colIndex];
+                square[rowIndex][colIndex] = 0; // reset the cell
 
                 freeNode(poppedNode);
-                square[rowIndex][colIndex] = 0; // reset the cell
                 stepsNum++;
                 (*numPop)++;
 
