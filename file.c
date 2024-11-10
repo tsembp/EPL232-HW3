@@ -70,4 +70,3 @@ int **readLatinSquare(const char *filename, int *size)
     fclose(fp);
     return array;
 }
-
