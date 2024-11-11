@@ -1,5 +1,4 @@
 #include "file.h"
-#define N 9
 
 void free2DArray(int **array, int size) {
     if (array != NULL) {

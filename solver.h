@@ -1,8 +1,37 @@
+/**
+ * @file solver.h
+ *
+ * @brief Header file for the Latin square puzzle-solving algorithm.
+ *
+ * This file declares functions for solving a Latin square puzzle using backtracking.
+ * It includes functions for placing numbers within the puzzle, checking the validity of
+ * placements, and backtracking when necessary by using a stack.
+ *
+ * Authors:
+ * - Panagiotis Tsembekis
+ * - Rafael Tsekouronas
+ */
+
 #ifndef SOLVER_H
 #define SOLVER_H
 #include "stack.h"
 #include "file.h"
 
+/**
+ * @brief Solves the Latin square puzzle using backtracking.
+ *
+ * Attempts to solve the Latin square by placing numbers in empty cells
+ * while adhering to row and column uniqueness rules. If no valid placement
+ * is possible, it backtracks by reverting to previous states in the stack.
+ *
+ * @param stack A stack used to store puzzle states for backtracking.
+ * @param square The Latin square to be solved as a 2D array.
+ * @param size The size of the Latin square (n x n).
+ * @param numPush Pointer to an integer tracking the number of pushes to the stack.
+ * @param numPop Pointer to an integer tracking the number of pops from the stack.
+ *
+ * @return `true` if the puzzle is solved, `false` if no solution exists.
+ */
 bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop);
 
 /**

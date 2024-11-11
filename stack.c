@@ -1,3 +1,18 @@
+/**
+ * @file stack.c
+ * 
+ * @brief Implementation of stack operations for managing nodes containing a Latin square board.
+ * 
+ * This file provides the implementation of functions to initialize, manipulate, and free a stack
+ * of nodes. Each node contains a dynamically allocated 2D array representing part of a Latin 
+ * square, along with its position in the square. The stack supports basic operations like push, 
+ * pop, and printing, as well as memory management functions for safe deallocation.
+ * 
+ * @authors 
+ * - Panagiotis Tsembekis
+ * - Rafael Tsekouronas
+ */
+
 #include "stack.h"
 
 int initStack(STACK **stack)

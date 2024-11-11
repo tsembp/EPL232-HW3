@@ -1,15 +1,56 @@
+/**
+ * @file solver.c
+ *
+ * @brief Implementation of the Latin square puzzle-solving algorithm using backtracking and a stack.
+ *
+ * This file contains functions that attempt to solve a Latin square puzzle by placing numbers
+ * while checking each move against the rules of the puzzle. It uses backtracking with a stack
+ * to keep track of placements and to revert to previous states when necessary.
+ *
+ * The main functions include `puzzleSolver` to drive the solving process, `attemptPlacement`
+ * to place numbers while following constraints, and helper functions `isSafe` and `findEmptyPosition`
+ * to assist in validating placements and locating empty positions.
+ *
+ * Authors:
+ * - Panagiotis Tsembekis
+ * - Rafael Tsekouronas
+ */
+
 #include "solver.h"
-#include "stack.h"
 #include <string.h>
 
-bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *stepsNum, int *rowIndex, int *colIndex, int *triedNumbers, int startIndex) {
-    for (int i = startIndex; i <= size; i++) {
-        if (triedNumbers[i] == 1) continue; // Skip numbers that have been tried
+/**
+ * @brief Attempts to place a number in the next empty cell of the Latin square.
+ *
+ * This function tries to place numbers sequentially in the specified cell,
+ * skipping those that have already been tried. If a valid placement is found,
+ * it pushes the state onto the stack.
+ *
+ * @param stack The stack used for storing states of the puzzle.
+ * @param square The current state of the Latin square as a 2D array.
+ * @param size The size of the Latin square.
+ * @param numPush Pointer to the counter tracking the number of pushes to the stack.
+ * @param stepsNum Pointer to the counter tracking the total steps taken.
+ * @param rowIndex Pointer to the current row being processed.
+ * @param colIndex Pointer to the current column being processed.
+ * @param triedNumbers Array indicating numbers that have already been attempted for the current cell.
+ * @param startIndex The starting number to attempt placement.
+ *
+ * @return `true` if a placement was successful, `false` otherwise.
+ */
+bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *stepsNum, int *rowIndex, int *colIndex, int *triedNumbers, int startIndex)
+{
+    for (int i = startIndex; i <= size; i++)
+    {
+        if (triedNumbers[i] == 1)
+            continue; // Skip numbers that have been tried
 
-        if (isSafe(square, *rowIndex, *colIndex, i, size)) {
+        if (isSafe(square, *rowIndex, *colIndex, i, size))
+        {
             // Initialize a new node for the new current state
             NODE *node;
-            if (initNode(&node, square, *rowIndex, *colIndex, size) == EXIT_FAILURE) {
+            if (initNode(&node, square, *rowIndex, *colIndex, size) == EXIT_FAILURE)
+            {
                 return false; // Handle memory allocation failure
             }
 
@@ -26,19 +67,21 @@ bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *s
             (*stepsNum)++;
 
             // Update `square` by modifying its contents (no need to change `square` itself)
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++)
+            {
                 memcpy(square[i], node->square[i], size * sizeof(int));
             }
             memset(triedNumbers, 0, (size + 1) * sizeof(int)); // Reset tried numbers for the next cell
-            return true; // Placement was successful
-        } else {
+            return true;                                       // Placement was successful
+        }
+        else
+        {
             triedNumbers[i] = 1; // Mark this number as tried
         }
     }
 
     return false; // No placement was possible
 }
-
 
 bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop)
 {
