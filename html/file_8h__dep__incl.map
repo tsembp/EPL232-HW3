@@ -1,0 +1,12 @@
+<map id="file.h" name="file.h">
+<area shape="rect" id="Node000001" title="Header file for reading and managing a Latin square." alt="" coords="69,5,123,31"/>
+<area shape="rect" id="Node000002" href="$file_8c.html" title=" " alt="" coords="5,79,59,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,43,44,80,40,77,74,39"/>
+<area shape="rect" id="Node000003" href="$latinSolver_8c.html" title="Main program for solving a Latin square puzzle using backtracking." alt="" coords="45,152,147,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,45,99,152,93,152,93,45"/>
+<area shape="rect" id="Node000004" href="$solver_8h.html" title="Header file for the Latin square puzzle&#45;solving algorithm." alt="" coords="134,79,207,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,38,160,77,157,80,116,42"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="151,115,110,154,106,150,147,111"/>
+<area shape="rect" id="Node000005" href="$solver_8c.html" title="Implementation of the Latin square puzzle&#45;solving algorithm using backtracking and a stack." alt="" coords="172,152,244,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="185,115,204,151,200,153,181,117"/>
+</map>

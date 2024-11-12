@@ -1,0 +1,7 @@
+<map id="printStack" name="printStack">
+<area shape="rect" id="Node000001" title="Prints the entire stack from top to bottom." alt="" coords="5,31,93,56"/>
+<area shape="rect" id="Node000002" href="$stack_8c.html#a0eaf530a550749fa1c8ba1ea6dddedf2" title="Checks if the stack is empty." alt="" coords="147,5,222,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,33,133,25,134,30,94,38"/>
+<area shape="rect" id="Node000003" href="$stack_8c.html#a0c1cfe68ecfaee0e4d2561a0feedd0a2" title="Prints the contents of a node." alt="" coords="141,55,228,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,48,128,55,127,60,93,54"/>
+</map>

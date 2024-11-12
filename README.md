@@ -1,3 +1,4 @@
+@mainpage
 # EPL232 - Assignment 3
 
 ## Automated Latin Square

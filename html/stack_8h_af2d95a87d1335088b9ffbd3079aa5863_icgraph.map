@@ -1,0 +1,10 @@
+<map id="pop" name="pop">
+<area shape="rect" id="Node000001" title="Pops a node from the stack." alt="" coords="261,31,308,56"/>
+<area shape="rect" id="Node000002" href="$stack_8c.html#ad5ab12a5feb1e0209592933a1c4edfb8" title="Frees memory allocated for the entire stack." alt="" coords="119,5,203,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,39,202,29,203,24,248,33"/>
+<area shape="rect" id="Node000004" href="$solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="108,55,213,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,53,214,60,213,54,247,48"/>
+<area shape="rect" id="Node000003" href="$latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,32,61,41,60,35,105,26"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="94,58,60,51,61,46,95,52"/>
+</map>

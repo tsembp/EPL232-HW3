@@ -1,0 +1,7 @@
+<map id="findEmptyPosition" name="findEmptyPosition">
+<area shape="rect" id="Node000001" title="Finds the next empty position in the Latin square." alt="" coords="261,5,401,31"/>
+<area shape="rect" id="Node000002" href="$solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="108,5,213,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,21,213,21,213,15,248,15"/>
+<area shape="rect" id="Node000003" href="$latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

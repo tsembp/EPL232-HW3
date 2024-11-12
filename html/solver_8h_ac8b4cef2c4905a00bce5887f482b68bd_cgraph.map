@@ -1,0 +1,22 @@
+<map id="puzzleSolver" name="puzzleSolver">
+<area shape="rect" id="Node000001" title="Solves the Latin square puzzle using backtracking." alt="" coords="5,229,111,255"/>
+<area shape="rect" id="Node000002" href="$solver_8c.html#ade4cf4d969fe0a5aad6a6c43c8484bfc" title="Attempts to place a number in the next empty cell of the Latin square." alt="" coords="159,103,301,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,227,106,188,157,145,181,132,184,136,160,150,109,192,72,231"/>
+<area shape="rect" id="Node000005" href="$stack_8c.html#a0c1cfe68ecfaee0e4d2561a0feedd0a2" title="Prints the contents of a node." alt="" coords="349,153,436,179"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="79,227,115,207,158,190,204,179,251,171,336,164,336,170,252,177,205,184,159,195,117,212,81,232"/>
+<area shape="rect" id="Node000007" href="$solver_8c.html#a21facac8b822b08eec25507a154d2fb0" title="Finds the next empty position in the Latin square." alt="" coords="160,204,300,229"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="111,232,146,226,147,232,111,237"/>
+<area shape="rect" id="Node000008" href="$stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687" title="Frees memory allocated for a node." alt="" coords="189,253,271,279"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="111,247,175,256,175,261,111,252"/>
+<area shape="rect" id="Node000009" href="$stack_8c.html#a0eaf530a550749fa1c8ba1ea6dddedf2" title="Checks if the stack is empty." alt="" coords="193,303,267,328"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="84,252,160,289,181,297,179,302,158,294,82,257"/>
+<area shape="rect" id="Node000010" href="$stack_8c.html#af2d95a87d1335088b9ffbd3079aa5863" title="Pops a node from the stack." alt="" coords="207,352,253,377"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="71,253,107,295,132,318,160,338,194,353,192,358,157,343,129,322,104,298,67,256"/>
+<area shape="rect" id="Node000003" href="$stack_8c.html#a1fd32c77fb592f2bbf625ac0d23d3b46" title="Initializes a new node with a Latin square board and position." alt="" coords="354,5,431,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="250,100,348,40,355,35,358,40,351,44,253,105"/>
+<area shape="rect" id="Node000004" href="$solver_8c.html#a8938663979444440c14d82d4493f14cc" title="Checks if placing a number at the given row and column is valid in the current Latin square." alt="" coords="361,55,424,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="273,100,347,78,349,83,275,105"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="273,126,339,147,337,152,271,131"/>
+<area shape="rect" id="Node000006" href="$stack_8c.html#ab4eb36cee3d609f62246fe6b17b9194d" title="Pushes a node onto the stack." alt="" coords="366,104,419,129"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="302,113,352,114,352,119,301,119"/>
+</map>

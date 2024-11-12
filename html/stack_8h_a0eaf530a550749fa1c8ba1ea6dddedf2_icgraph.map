@@ -1,0 +1,12 @@
+<map id="isEmpty" name="isEmpty">
+<area shape="rect" id="Node000001" title="Checks if the stack is empty." alt="" coords="261,55,336,80"/>
+<area shape="rect" id="Node000002" href="$stack_8c.html#ad5ab12a5feb1e0209592933a1c4edfb8" title="Frees memory allocated for the entire stack." alt="" coords="119,5,203,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,52,196,33,198,28,251,47"/>
+<area shape="rect" id="Node000004" href="$stack_8c.html#a23e8224b89617afac36be81a74de9cdf" title="Prints the entire stack from top to bottom." alt="" coords="117,55,205,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,70,205,70,205,65,248,65"/>
+<area shape="rect" id="Node000005" href="$solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="108,104,213,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="251,87,198,106,196,101,249,82"/>
+<area shape="rect" id="Node000003" href="$latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,38,61,59,59,55,113,33"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="113,101,59,80,61,75,115,96"/>
+</map>

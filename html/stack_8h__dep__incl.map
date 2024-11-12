@@ -1,0 +1,12 @@
+<map id="stack.h" name="stack.h">
+<area shape="rect" id="Node000001" title="Header file for stack operations involving nodes containing a Latin square board." alt="" coords="97,5,166,31"/>
+<area shape="rect" id="Node000002" href="$latinSolver_8c.html" title="Main program for solving a Latin square puzzle using backtracking." alt="" coords="5,152,108,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,43,86,80,70,119,61,153,56,151,65,117,81,77,108,40"/>
+<area shape="rect" id="Node000003" href="$solver_8h.html" title="Header file for the Latin square puzzle&#45;solving algorithm." alt="" coords="95,79,168,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,44,134,79,129,79,129,44"/>
+<area shape="rect" id="Node000005" href="$stack_8c.html" title="Implementation of stack operations for managing nodes containing a Latin square board." alt="" coords="192,79,260,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="159,37,212,76,209,81,156,41"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="111,115,71,154,67,150,108,111"/>
+<area shape="rect" id="Node000004" href="$solver_8c.html" title="Implementation of the Latin square puzzle&#45;solving algorithm using backtracking and a stack." alt="" coords="133,152,205,177"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="146,115,165,151,160,153,141,117"/>
+</map>
