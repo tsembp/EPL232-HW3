@@ -1,8 +1,21 @@
 <map id="free2DArray" name="free2DArray">
-<area shape="rect" id="Node000001" title="Frees a dynamically allocated 2D array." alt="" coords="284,5,385,31"/>
-<area shape="rect" id="Node000002" href="$latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="271,21,60,21,60,15,271,15"/>
-<area shape="rect" id="Node000003" href="$file_8c.html#a1a732cd98eca23e204f68a3e118cbec8" title="Reads a Latin square from a file." alt="" coords="108,31,236,56"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,31,236,36,236,31,270,25"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="94,32,60,25,61,20,95,27"/>
+<area shape="rect" id="Node000001" title="Frees a dynamically allocated 2D array." alt="" coords="628,80,729,105"/>
+<area shape="rect" id="Node000002" href="$stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687" title="Frees memory allocated for a node." alt="" coords="291,5,374,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="645,75,614,58,579,45,525,32,469,25,374,20,374,15,469,19,526,27,581,39,616,53,648,70"/>
+<area shape="rect" id="Node000004" href="$latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,80,60,105"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="614,95,60,95,60,90,614,90"/>
+<area shape="rect" id="Node000006" href="$stack_8c.html#a1fd32c77fb592f2bbf625ac0d23d3b46" title="Initializes a new node with a Latin square board and position." alt="" coords="477,55,555,80"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="614,85,554,76,555,71,614,80"/>
+<area shape="rect" id="Node000008" href="$file_8c.html#a1a732cd98eca23e204f68a3e118cbec8" title="Reads a Latin square from a file." alt="" coords="452,156,580,181"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="639,114,545,158,543,153,637,109"/>
+<area shape="rect" id="Node000003" href="$stack_8c.html#ad5ab12a5feb1e0209592933a1c4edfb8" title="Frees memory allocated for the entire stack." alt="" coords="119,5,203,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,21,203,21,203,15,278,15"/>
+<area shape="rect" id="Node000005" href="$solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="108,55,213,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="279,36,207,57,205,52,277,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="119,39,109,44,53,82,50,78,107,40,116,35"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="95,83,61,90,60,85,94,78"/>
+<area shape="rect" id="Node000007" href="$solver_8c.html#ade4cf4d969fe0a5aad6a6c43c8484bfc" title="Attempts to place a number in the next empty cell of the Latin square." alt="" coords="261,55,404,80"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="464,70,404,70,404,65,464,65"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="248,70,214,70,214,65,248,65"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="438,176,367,176,283,171,194,160,107,139,75,125,49,108,52,103,78,120,109,134,195,155,284,166,367,170,438,170"/>
 </map>

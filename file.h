@@ -9,6 +9,8 @@
  * @authors
  * - Panagiotis Tsembekis
  * - Rafael Tsekouronas
+ * 
+ * @bug No known bugs.
  */
 
 #ifndef FILE_H

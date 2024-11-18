@@ -11,9 +11,11 @@
  * to place numbers while following constraints, and helper functions `isSafe` and `findEmptyPosition`
  * to assist in validating placements and locating empty positions.
  *
- * Authors:
+ * @authors
  * - Panagiotis Tsembekis
  * - Rafael Tsekouronas
+ *
+ * @bug No known bugs.
  */
 
 #include "solver.h"
@@ -22,7 +24,7 @@
 /**
  * @brief Attempts to place a number in the next empty cell of the Latin square.
  *
- * This function tries to place numbers sequentially in the specified cell,
+ * This function acts as a helper function for puzzleSolver. It tries to place numbers sequentially in the specified cell,
  * skipping those that have already been tried. If a valid placement is found,
  * it pushes the state onto the stack.
  *
@@ -37,21 +39,23 @@
  * @param startIndex The starting number to attempt placement.
  *
  * @return `true` if a placement was successful, `false` otherwise.
+ *
+ * @see puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop) For the main function that calls this helper.
  */
 bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *stepsNum, int *rowIndex, int *colIndex, int *triedNumbers, int startIndex)
 {
-    for (int i = startIndex; i <= size; i++)
+    for (int i = startIndex; i <= size; i++) // begin from number given at `startingIndex`
     {
         if (triedNumbers[i] == 1)
-            continue; // Skip numbers that have been tried
+            continue; // skip numbers that have been tried
 
-        if (isSafe(square, *rowIndex, *colIndex, i, size))
+        if (isSafe(square, *rowIndex, *colIndex, i, size)) // check if number adheres to rules of the game
         {
             // Initialize a new node for the new current state
             NODE *node;
             if (initNode(&node, square, *rowIndex, *colIndex, size) == EXIT_FAILURE)
             {
-                return false; // Handle memory allocation failure
+                return false; // handle memory allocation failure
             }
 
             // Insert the new value
@@ -69,27 +73,30 @@ bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *s
             // Update `square` by modifying its contents (no need to change `square` itself)
             for (int i = 0; i < size; i++)
             {
-                memcpy(square[i], node->square[i], size * sizeof(int));
+                memcpy(square[i], node->square[i], size * sizeof(int)); // copy row of `square` to the node's square array
             }
-            memset(triedNumbers, 0, (size + 1) * sizeof(int)); // Reset tried numbers for the next cell
-            return true;                                       // Placement was successful
+
+            memset(triedNumbers, 0, (size + 1) * sizeof(int)); // reset tried numbers for next function call
+            return true; // successfull placement            
         }
-        else
+        else // not safe insertion
         {
-            triedNumbers[i] = 1; // Mark this number as tried
+            triedNumbers[i] = 1; // mark this number as tried
         }
     }
 
-    return false; // No placement was possible
+    return false; // no placement was possible
 }
 
+// Main solver function for automatically solving the latin square
 bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop)
 {
     int stepsNum = 1, rowIndex = -1, colIndex = -1;
     int *triedNumbers = (int *)calloc(size + 1, sizeof(int)); // dynamic array initialized to 0
 
-    while (findEmptyPosition(square, size, &rowIndex, &colIndex))
-    { // while board is not filled
+    while (findEmptyPosition(square, size, &rowIndex, &colIndex)) // while `square` is not filled
+    { 
+        // Attempt placemenet
         bool placed = attemptPlacement(stack, square, size, numPush, &stepsNum, &rowIndex, &colIndex, triedNumbers, 1);
 
         if (!placed) // if no number [1,size] managed to be inserted, we need to backtrack
@@ -113,7 +120,7 @@ bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPo
                 int lastNumTried = poppedNode->square[rowIndex][colIndex];
                 square[rowIndex][colIndex] = 0; // reset the cell
 
-                freeNode(poppedNode);
+                freeNode(poppedNode); // free last state
                 stepsNum++;
                 (*numPop)++;
 
@@ -137,7 +144,7 @@ bool isSafe(int **square, int row, int col, int num, int size)
     // Step 1: Check row condition - One element 'num' per row
     for (int j = 0; j < size; j++)
     {
-        if (abs(square[row][j]) == num)
+        if (abs(square[row][j]) == num) // handle both positive and negative (pre-given) values
         {
             printf("\nError: Illegal value insertion! | Can't insert %d at (%d,%d).\n", num, row, col);
             return false;
@@ -147,7 +154,7 @@ bool isSafe(int **square, int row, int col, int num, int size)
     // Step 2: Check column condition - One element 'num' per column
     for (int i = 0; i < size; i++)
     {
-        if (abs(square[i][col]) == num)
+        if (abs(square[i][col]) == num) // handle both positive and negative (pre-given) values
         {
             printf("\nError: Illegal value insertion! | Can't insert %d at (%d,%d).\n", num, row, col);
             return false;
@@ -157,14 +164,17 @@ bool isSafe(int **square, int row, int col, int num, int size)
     return true;
 }
 
+// Find the first empty cell in the `square`
 bool findEmptyPosition(int **square, int size, int *row, int *col)
 {
+    // Iterate through the whole array
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
         {
-            if (square[i][j] == 0)
+            if (square[i][j] == 0) // =0 indicates empty cell
             {
+                // Set values for row and column and return true
                 *row = i;
                 *col = j;
                 return true;

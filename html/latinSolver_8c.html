@@ -89,10 +89,12 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Main program for solving a Latin square puzzle using backtracking. </p>
 <p>This program initializes a Latin square puzzle from an input file, then attempts to solve it using backtracking with the help of a stack. It displays the outcome of the puzzle solution, including the number of push and pop operations performed.</p>
 <p>Usage: </p><div class="fragment"><div class="line">./latinSolver &lt;inputFile.txt&gt;</div>
-</div><!-- fragment --><p>Authors:</p><ul>
+</div><!-- fragment --><dl class="section author"><dt>Authors</dt><dd><ul>
 <li>Panagiotis Tsembekis</li>
-<li>Rafael Tsekouronas </li>
+<li>Rafael Tsekouronas</li>
 </ul>
+</dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>No known bugs. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
@@ -130,54 +132,56 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the puzzle was solved successfully, 1 if the puzzle was unsolvable or an error occurred. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (argc != 2)</div>
-<div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        printf(<span class="stringliteral">&quot;Usage:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   45</span>        printf(<span class="stringliteral">&quot;./latinSolver &lt;inputFile.txt&gt;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *fileName = argv[1];</div>
-<div class="line"><span class="lineno">   50</span>    <span class="keywordtype">int</span> size;</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordtype">int</span> **tableau = <a class="code hl_function" href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare</a>(fileName, &amp;size);</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">if</span>(tableau == NULL){</div>
-<div class="line"><span class="lineno">   53</span>        perror(<span class="stringliteral">&quot;Failed to initialize puzzle from input file.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">   55</span>    }</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    <a class="code hl_struct" href="structSTACK.html">STACK</a> *<a class="code hl_struct" href="structstack.html">stack</a>;</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="stack_8h.html#a41713b3d268b795779d07ef05226abee">initStack</a>(&amp;<a class="code hl_struct" href="structstack.html">stack</a>) == EXIT_FAILURE)</div>
-<div class="line"><span class="lineno">   59</span>    {</div>
-<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(tableau, size);</div>
-<div class="line"><span class="lineno">   61</span>        perror(<span class="stringliteral">&quot;Error initializing stack.&quot;</span>);</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">   63</span>    }</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordtype">int</span> numPush = 0, numPop = 0;</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordtype">bool</span> gameResult = <a class="code hl_function" href="solver_8h.html#ac8b4cef2c4905a00bce5887f482b68bd">puzzleSolver</a>(<a class="code hl_struct" href="structstack.html">stack</a>, tableau, size, &amp;numPush, &amp;numPop);</div>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (argc != 2) <span class="comment">// check for improper arguments passed</span></div>
+<div class="line"><span class="lineno">   45</span>    {</div>
+<div class="line"><span class="lineno">   46</span>        printf(<span class="stringliteral">&quot;Usage:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>        printf(<span class="stringliteral">&quot;./latinSolver &lt;inputFile.txt&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *fileName = argv[1];</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordtype">int</span> size;</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordtype">int</span> **tableau = <a class="code hl_function" href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare</a>(fileName, &amp;size); <span class="comment">// read initial latinsquare and save to tableau</span></div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span>(tableau == NULL) <span class="comment">// handle improper initialization</span></div>
+<div class="line"><span class="lineno">   55</span>    { </div>
+<div class="line"><span class="lineno">   56</span>        perror(<span class="stringliteral">&quot;Failed to initialize puzzle from input file.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   58</span>    }</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_struct" href="structSTACK.html">STACK</a> *<a class="code hl_struct" href="structstack.html">stack</a>;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="stack_8h.html#a41713b3d268b795779d07ef05226abee">initStack</a>(&amp;<a class="code hl_struct" href="structstack.html">stack</a>) == EXIT_FAILURE) <span class="comment">// handle improper alloaction for stack</span></div>
+<div class="line"><span class="lineno">   62</span>    {</div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(tableau, size); <span class="comment">// free previously allocated 2D array</span></div>
+<div class="line"><span class="lineno">   64</span>        perror(<span class="stringliteral">&quot;Error initializing stack.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   66</span>    }</div>
 <div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>    <span class="comment">// Possibly make it 0=good 1=unsolved 2=error allocate</span></div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">if</span>(gameResult){</div>
-<div class="line"><span class="lineno">   70</span>        printf(<span class="stringliteral">&quot;Congrats! Puzzle solved!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   71</span>        printf(<span class="stringliteral">&quot;PUSH NUM: %d\n&quot;</span>, numPush);</div>
-<div class="line"><span class="lineno">   72</span>        printf(<span class="stringliteral">&quot;POP NUM: %d\n&quot;</span>, numPop);</div>
-<div class="line"><span class="lineno">   73</span>    } <span class="keywordflow">else</span>{</div>
-<div class="line"><span class="lineno">   74</span>        printf(<span class="stringliteral">&quot;Puzzle not solved. (unsolvable or error)\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   75</span>    }</div>
-<div class="line"><span class="lineno">   76</span>    </div>
-<div class="line"><span class="lineno">   77</span>    <a class="code hl_function" href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(tableau, size);</div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_function" href="stack_8h.html#ad5ab12a5feb1e0209592933a1c4edfb8">freeStack</a>(<a class="code hl_struct" href="structstack.html">stack</a>);</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   81</span>}</div>
-<div class="ttc" id="afile_8h_html_a1a732cd98eca23e204f68a3e118cbec8"><div class="ttname"><a href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare</a></div><div class="ttdeci">int ** readLatinSquare(const char *filename, int *size)</div><div class="ttdoc">Reads a Latin square from a file.</div><div class="ttdef"><b>Definition</b> file.c:13</div></div>
-<div class="ttc" id="afile_8h_html_ac96a37a21b083f0fdbe6ab1297787537"><div class="ttname"><a href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a></div><div class="ttdeci">void free2DArray(int **array, int size)</div><div class="ttdoc">Frees a dynamically allocated 2D array.</div><div class="ttdef"><b>Definition</b> file.c:3</div></div>
-<div class="ttc" id="asolver_8h_html_ac8b4cef2c4905a00bce5887f482b68bd"><div class="ttname"><a href="solver_8h.html#ac8b4cef2c4905a00bce5887f482b68bd">puzzleSolver</a></div><div class="ttdeci">bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop)</div><div class="ttdoc">Solves the Latin square puzzle using backtracking.</div><div class="ttdef"><b>Definition</b> solver.c:86</div></div>
-<div class="ttc" id="astack_8h_html_a41713b3d268b795779d07ef05226abee"><div class="ttname"><a href="stack_8h.html#a41713b3d268b795779d07ef05226abee">initStack</a></div><div class="ttdeci">int initStack(STACK **stack)</div><div class="ttdoc">Initializes the stack.</div><div class="ttdef"><b>Definition</b> stack.c:18</div></div>
-<div class="ttc" id="astack_8h_html_ad5ab12a5feb1e0209592933a1c4edfb8"><div class="ttname"><a href="stack_8h.html#ad5ab12a5feb1e0209592933a1c4edfb8">freeStack</a></div><div class="ttdeci">void freeStack(STACK *stack)</div><div class="ttdoc">Frees memory allocated for the entire stack.</div><div class="ttdef"><b>Definition</b> stack.c:180</div></div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordtype">int</span> numPush = 0, numPop = 0;</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordtype">bool</span> gameResult = <a class="code hl_function" href="solver_8h.html#ac8b4cef2c4905a00bce5887f482b68bd">puzzleSolver</a>(<a class="code hl_struct" href="structstack.html">stack</a>, tableau, size, &amp;numPush, &amp;numPop); <span class="comment">// call backtracking funtion to solve</span></div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    <span class="comment">// Check return value of the solver </span></div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span>(gameResult){</div>
+<div class="line"><span class="lineno">   73</span>        printf(<span class="stringliteral">&quot;Congrats! Puzzle solved!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   74</span>        printf(<span class="stringliteral">&quot;PUSH NUM: %d\n&quot;</span>, numPush);</div>
+<div class="line"><span class="lineno">   75</span>        printf(<span class="stringliteral">&quot;POP NUM: %d\n&quot;</span>, numPop);</div>
+<div class="line"><span class="lineno">   76</span>    } <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">   77</span>        printf(<span class="stringliteral">&quot;Puzzle not solved. (unsolvable or error)\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span>    </div>
+<div class="line"><span class="lineno">   80</span>    <span class="comment">// Free previously allocated memory blocks</span></div>
+<div class="line"><span class="lineno">   81</span>    <a class="code hl_function" href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(tableau, size);</div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_function" href="stack_8h.html#ad5ab12a5feb1e0209592933a1c4edfb8">freeStack</a>(<a class="code hl_struct" href="structstack.html">stack</a>);</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="afile_8h_html_a1a732cd98eca23e204f68a3e118cbec8"><div class="ttname"><a href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare</a></div><div class="ttdeci">int ** readLatinSquare(const char *filename, int *size)</div><div class="ttdoc">Reads a Latin square from a file.</div><div class="ttdef"><b>Definition</b> file.c:33</div></div>
+<div class="ttc" id="afile_8h_html_ac96a37a21b083f0fdbe6ab1297787537"><div class="ttname"><a href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a></div><div class="ttdeci">void free2DArray(int **array, int size)</div><div class="ttdoc">Frees a dynamically allocated 2D array.</div><div class="ttdef"><b>Definition</b> file.c:22</div></div>
+<div class="ttc" id="asolver_8h_html_ac8b4cef2c4905a00bce5887f482b68bd"><div class="ttname"><a href="solver_8h.html#ac8b4cef2c4905a00bce5887f482b68bd">puzzleSolver</a></div><div class="ttdeci">bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPop)</div><div class="ttdoc">Solves the Latin square puzzle using backtracking.</div><div class="ttdef"><b>Definition</b> solver.c:92</div></div>
+<div class="ttc" id="astack_8h_html_a41713b3d268b795779d07ef05226abee"><div class="ttname"><a href="stack_8h.html#a41713b3d268b795779d07ef05226abee">initStack</a></div><div class="ttdeci">int initStack(STACK **stack)</div><div class="ttdoc">Initializes the stack.</div><div class="ttdef"><b>Definition</b> stack.c:21</div></div>
+<div class="ttc" id="astack_8h_html_ad5ab12a5feb1e0209592933a1c4edfb8"><div class="ttname"><a href="stack_8h.html#ad5ab12a5feb1e0209592933a1c4edfb8">freeStack</a></div><div class="ttdeci">void freeStack(STACK *stack)</div><div class="ttdoc">Frees memory allocated for the entire stack.</div><div class="ttdef"><b>Definition</b> stack.c:201</div></div>
 <div class="ttc" id="astructSTACK_html"><div class="ttname"><a href="structSTACK.html">STACK</a></div><div class="ttdoc">Represents a stack data structure for managing NODE elements.</div></div>
-<div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdef"><b>Definition</b> stack.h:43</div></div>
+<div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdef"><b>Definition</b> stack.h:45</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray()</a>, <a class="el" href="stack_8h.html#ad5ab12a5feb1e0209592933a1c4edfb8">freeStack()</a>, <a class="el" href="stack_8h.html#a41713b3d268b795779d07ef05226abee">initStack()</a>, <a class="el" href="solver_8h.html#ac8b4cef2c4905a00bce5887f482b68bd">puzzleSolver()</a>, and <a class="el" href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare()</a>.</p>
 <div class="dynheader">
@@ -185,40 +189,42 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="latinSolver_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#alatinSolver_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="alatinSolver_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="alatinSolver_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,107,60,132"/>
-<area shape="rect" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537" title="Frees a dynamically allocated 2D array." alt="" coords="305,7,406,32"/>
-<area shape="poly" title=" " alt="" coords="59,108,107,91,296,33,298,39,109,97,61,113"/>
-<area shape="rect" href="stack_8c.html#ad5ab12a5feb1e0209592933a1c4edfb8" title="Frees memory allocated for the entire stack." alt="" coords="130,107,214,132"/>
-<area shape="poly" title=" " alt="" coords="60,117,116,117,116,122,60,122"/>
-<area shape="rect" href="stack_8c.html#a41713b3d268b795779d07ef05226abee" title="Initializes the stack." alt="" coords="133,205,211,231"/>
-<area shape="poly" title=" " alt="" coords="46,131,73,160,110,190,122,197,119,202,106,195,70,164,42,134"/>
-<area shape="rect" href="solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="119,156,225,181"/>
-<area shape="poly" title=" " alt="" coords="61,126,123,149,122,154,59,131"/>
-<area shape="rect" href="file_8c.html#a1a732cd98eca23e204f68a3e118cbec8" title="Reads a Latin square from a file." alt="" coords="108,5,236,31"/>
-<area shape="poly" title=" " alt="" coords="44,105,71,77,106,48,128,35,131,39,110,52,75,81,48,108"/>
-<area shape="rect" href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687" title="Frees memory allocated for a node." alt="" coords="314,57,397,83"/>
-<area shape="poly" title=" " alt="" coords="214,106,300,82,301,87,215,111"/>
-<area shape="rect" href="stack_8c.html#a0eaf530a550749fa1c8ba1ea6dddedf2" title="Checks if the stack is empty." alt="" coords="318,107,393,132"/>
-<area shape="poly" title=" " alt="" coords="214,117,304,117,304,122,214,122"/>
-<area shape="rect" href="stack_8c.html#af2d95a87d1335088b9ffbd3079aa5863" title="Pops a node from the stack." alt="" coords="332,156,379,181"/>
-<area shape="poly" title=" " alt="" coords="215,128,319,156,318,162,214,133"/>
-<area shape="poly" title=" " alt="" coords="211,153,234,141,249,129,258,117,267,104,283,92,300,83,302,88,285,96,271,108,262,120,253,133,238,146,214,158"/>
-<area shape="poly" title=" " alt="" coords="219,153,304,130,305,135,221,159"/>
-<area shape="poly" title=" " alt="" coords="225,166,318,166,318,171,225,171"/>
-<area shape="rect" href="solver_8c.html#ade4cf4d969fe0a5aad6a6c43c8484bfc" title="Attempts to place a number in the next empty cell of the Latin square." alt="" coords="284,205,427,231"/>
-<area shape="poly" title=" " alt="" coords="221,179,295,199,293,204,219,184"/>
-<area shape="rect" href="stack_8c.html#a0c1cfe68ecfaee0e4d2561a0feedd0a2" title="Prints the contents of a node." alt="" coords="475,256,561,281"/>
-<area shape="poly" title=" " alt="" coords="216,179,238,190,253,204,261,218,270,230,285,241,329,257,375,266,420,270,461,270,460,276,420,276,374,272,327,262,283,246,267,234,257,221,248,208,234,195,213,184"/>
-<area shape="rect" href="solver_8c.html#a21facac8b822b08eec25507a154d2fb0" title="Finds the next empty position in the Latin square." alt="" coords="285,307,425,332"/>
-<area shape="poly" title=" " alt="" coords="220,179,238,191,256,215,263,239,269,262,286,285,304,298,301,303,282,289,265,264,258,240,251,217,234,195,217,184"/>
-<area shape="rect" href="stack_8c.html#a1fd32c77fb592f2bbf625ac0d23d3b46" title="Initializes a new node with a Latin square board and position." alt="" coords="479,207,557,232"/>
-<area shape="poly" title=" " alt="" coords="427,216,466,216,466,222,427,221"/>
-<area shape="rect" href="solver_8c.html#a8938663979444440c14d82d4493f14cc" title="Checks if placing a number at the given row and column is valid in the current Latin square." alt="" coords="487,108,549,133"/>
-<area shape="poly" title=" " alt="" coords="400,203,425,190,440,179,449,168,473,143,478,139,481,143,476,147,453,171,443,183,428,195,402,208"/>
-<area shape="poly" title=" " alt="" coords="398,228,464,249,462,254,396,233"/>
-<area shape="rect" href="stack_8c.html#ab4eb36cee3d609f62246fe6b17b9194d" title="Pushes a node onto the stack." alt="" coords="491,157,545,183"/>
-<area shape="poly" title=" " alt="" coords="398,203,477,179,479,184,400,208"/>
-<area shape="poly" title=" " alt="" coords="236,16,291,16,291,22,236,21"/>
+<area shape="rect" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,329,60,355"/>
+<area shape="rect" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537" title="Frees a dynamically allocated 2D array." alt="" coords="609,255,711,280"/>
+<area shape="poly" title=" " alt="" coords="61,342,145,347,270,349,415,340,489,330,561,314,595,301,627,285,629,290,598,306,562,319,490,335,416,345,270,354,145,353,60,347"/>
+<area shape="rect" href="stack_8c.html#ad5ab12a5feb1e0209592933a1c4edfb8" title="Frees memory allocated for the entire stack." alt="" coords="130,80,214,105"/>
+<area shape="poly" title=" " alt="" coords="34,328,55,245,76,191,106,140,136,111,140,115,110,144,81,194,60,247,39,330"/>
+<area shape="rect" href="stack_8c.html#a41713b3d268b795779d07ef05226abee" title="Initializes the stack." alt="" coords="133,429,211,455"/>
+<area shape="poly" title=" " alt="" coords="46,353,73,384,110,416,121,422,118,427,106,420,69,388,42,357"/>
+<area shape="rect" href="solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="119,155,225,180"/>
+<area shape="poly" title=" " alt="" coords="42,327,150,189,154,193,46,331"/>
+<area shape="rect" href="file_8c.html#a1a732cd98eca23e204f68a3e118cbec8" title="Reads a Latin square from a file." alt="" coords="108,380,236,405"/>
+<area shape="poly" title=" " alt="" coords="61,349,124,373,123,378,59,354"/>
+<area shape="rect" href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687" title="Frees memory allocated for a node." alt="" coords="314,55,397,80"/>
+<area shape="poly" title=" " alt="" coords="214,84,300,72,301,77,215,90"/>
+<area shape="rect" href="stack_8c.html#a0eaf530a550749fa1c8ba1ea6dddedf2" title="Checks if the stack is empty." alt="" coords="318,104,393,129"/>
+<area shape="poly" title=" " alt="" coords="215,95,305,107,304,113,214,101"/>
+<area shape="rect" href="stack_8c.html#af2d95a87d1335088b9ffbd3079aa5863" title="Pops a node from the stack." alt="" coords="332,5,379,31"/>
+<area shape="poly" title=" " alt="" coords="198,77,283,40,318,27,320,32,285,44,200,82"/>
+<area shape="poly" title=" " alt="" coords="397,66,435,70,478,79,522,94,563,116,594,144,619,178,651,241,647,243,614,181,590,148,560,120,520,98,476,84,434,75,397,71"/>
+<area shape="poly" title=" " alt="" coords="187,152,229,121,283,89,300,81,302,86,285,94,232,126,191,157"/>
+<area shape="poly" title=" " alt="" coords="218,152,304,128,305,133,220,157"/>
+<area shape="poly" title=" " alt="" coords="190,153,234,115,248,95,256,76,265,58,282,40,300,29,318,23,320,28,302,34,286,44,269,61,261,79,253,97,238,118,194,157"/>
+<area shape="rect" href="solver_8c.html#ade4cf4d969fe0a5aad6a6c43c8484bfc" title="Attempts to place a number in the next empty cell of the Latin square." alt="" coords="284,255,427,280"/>
+<area shape="poly" title=" " alt="" coords="191,178,232,209,285,241,299,247,297,252,283,246,229,213,187,182"/>
+<area shape="rect" href="stack_8c.html#a0c1cfe68ecfaee0e4d2561a0feedd0a2" title="Prints the contents of a node." alt="" coords="475,131,561,156"/>
+<area shape="poly" title=" " alt="" coords="225,161,461,145,461,150,225,166"/>
+<area shape="rect" href="solver_8c.html#a21facac8b822b08eec25507a154d2fb0" title="Finds the next empty position in the Latin square." alt="" coords="285,205,425,231"/>
+<area shape="poly" title=" " alt="" coords="220,178,296,199,295,204,218,183"/>
+<area shape="rect" href="stack_8c.html#a1fd32c77fb592f2bbf625ac0d23d3b46" title="Initializes a new node with a Latin square board and position." alt="" coords="479,180,557,205"/>
+<area shape="poly" title=" " alt="" coords="397,252,426,241,482,210,485,215,428,246,399,257"/>
+<area shape="rect" href="solver_8c.html#a8938663979444440c14d82d4493f14cc" title="Checks if placing a number at the given row and column is valid in the current Latin square." alt="" coords="487,279,549,304"/>
+<area shape="poly" title=" " alt="" coords="427,275,473,282,472,287,426,280"/>
+<area shape="poly" title=" " alt="" coords="406,252,425,241,441,223,449,205,457,186,473,166,477,162,480,166,477,169,462,189,454,207,446,226,428,245,409,257"/>
+<area shape="rect" href="stack_8c.html#ab4eb36cee3d609f62246fe6b17b9194d" title="Pushes a node onto the stack." alt="" coords="491,229,545,255"/>
+<area shape="poly" title=" " alt="" coords="426,254,477,246,478,251,427,259"/>
+<area shape="poly" title=" " alt="" coords="545,203,624,246,622,250,542,208"/>
+<area shape="poly" title=" " alt="" coords="236,397,306,401,389,398,476,385,519,374,560,358,584,344,606,327,640,290,644,293,609,331,587,349,562,363,521,379,477,391,389,403,306,406,236,403"/>
 </map>
 </div>
 

@@ -7,9 +7,11 @@
  * It includes functions for placing numbers within the puzzle, checking the validity of
  * placements, and backtracking when necessary by using a stack.
  *
- * Authors:
+ * @authors
  * - Panagiotis Tsembekis
  * - Rafael Tsekouronas
+ * 
+ * @bug No known bugs.
  */
 
 #ifndef SOLVER_H

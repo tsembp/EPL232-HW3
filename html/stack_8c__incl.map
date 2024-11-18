@@ -1,11 +1,15 @@
 <map id="stack.c" name="stack.c">
-<area shape="rect" id="Node000001" title="Implementation of stack operations for managing nodes containing a Latin square board." alt="" coords="98,5,166,31"/>
-<area shape="rect" id="Node000002" href="$stack_8h.html" title="Header file for stack operations involving nodes containing a Latin square board." alt="" coords="97,79,167,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,31,135,65,129,65,129,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,72,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,106,66,146,63,141,115,102"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="97,152,167,177"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="135,104,135,138,129,138,129,104"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="192,152,275,177"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="150,102,207,142,204,146,147,106"/>
+<area shape="rect" id="Node000001" title="Implementation of stack operations for managing nodes containing a Latin square board." alt="" coords="56,5,124,31"/>
+<area shape="rect" id="Node000002" href="$stack_8h.html" title="Header file for stack operations involving nodes containing a Latin square board." alt="" coords="99,79,169,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,30,122,66,117,68,95,32"/>
+<area shape="rect" id="Node000006" href="$file_8h.html" title="Header file for reading and managing a Latin square." alt="" coords="20,79,75,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="85,32,63,68,59,66,81,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,152,167,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="137,104,137,138,131,138,131,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,76,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="121,106,68,146,65,141,117,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="191,152,274,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="151,102,207,142,204,146,148,106"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="63,102,111,141,108,145,60,106"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="49,105,46,139,40,138,44,104"/>
 </map>

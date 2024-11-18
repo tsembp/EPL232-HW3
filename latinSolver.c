@@ -12,9 +12,11 @@
  * ./latinSolver <inputFile.txt>
  * ```
  * 
- * Authors:
+ * @authors
  * - Panagiotis Tsembekis
  * - Rafael Tsekouronas
+ * 
+ * @bug No known bugs.
  */
 
 #include <stdlib.h>
@@ -39,7 +41,7 @@
  */
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
+    if (argc != 2) // check for improper arguments passed
     {
         printf("Usage:\n");
         printf("./latinSolver <inputFile.txt>\n");
@@ -48,24 +50,25 @@ int main(int argc, char *argv[])
 
     const char *fileName = argv[1];
     int size;
-    int **tableau = readLatinSquare(fileName, &size);
-    if(tableau == NULL){
+    int **tableau = readLatinSquare(fileName, &size); // read initial latinsquare and save to tableau
+    if(tableau == NULL) // handle improper initialization
+    { 
         perror("Failed to initialize puzzle from input file.\n");
         return 1;
     }
 
     STACK *stack;
-    if (initStack(&stack) == EXIT_FAILURE)
+    if (initStack(&stack) == EXIT_FAILURE) // handle improper alloaction for stack
     {
-        free2DArray(tableau, size);
-        perror("Error initializing stack.");
+        free2DArray(tableau, size); // free previously allocated 2D array
+        perror("Error initializing stack.\n");
         return 1;
     }
 
     int numPush = 0, numPop = 0;
-    bool gameResult = puzzleSolver(stack, tableau, size, &numPush, &numPop);
+    bool gameResult = puzzleSolver(stack, tableau, size, &numPush, &numPop); // call backtracking funtion to solve
 
-    // Possibly make it 0=good 1=unsolved 2=error allocate
+    // Check return value of the solver 
     if(gameResult){
         printf("Congrats! Puzzle solved!\n");
         printf("PUSH NUM: %d\n", numPush);
@@ -74,6 +77,7 @@ int main(int argc, char *argv[])
         printf("Puzzle not solved. (unsolvable or error)\n");
     }
     
+    // Free previously allocated memory blocks
     free2DArray(tableau, size);
     freeStack(stack);
 

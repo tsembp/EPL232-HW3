@@ -43,16 +43,120 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
-EPL232 - Assignment 3</h1>
+EPL232 - Assignment 3 - Latin Square Solver</h1>
 <h2><a class="anchor" id="autotoc_md1"></a>
-Automated Latin Square</h2>
-<p>A collaborative project by Panagiotis Tsembekis &amp; Rafael Tsekouronas</p>
+Overview</h2>
+<p>A collaborative project by Panagiotis Tsembekis and Rafail Tsekouronas.</p>
+<p>This project implements a backtracking algorithm using a stack to solve the Latin Square puzzle. A Latin Square is an ( n \times n ) grid where each row and column contains the numbers from 1 to ( n ) exactly once. The program reads an initial puzzle configuration from a file, solves it, and outputs the solution step-by-step.</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md3"></a>
+Features</h2>
 <ul>
-<li>Compile Command: make</li>
-<li>Run Command: ./latinSolver &lt;inputfile.txt&gt;</li>
-<li>Valgrind Memory Check Command: valgrind &ndash;leak-check=full ./latinSolver &lt;input.txt&gt; </li>
+<li>Backtracking algorithm for puzzle solving.</li>
+<li>Dynamically allocated 2D arrays for grid representation.</li>
+<li>Stack-based backtracking to explore possible solutions.</li>
+<li>Handles puzzles of various sizes as specified in the input file.</li>
+<li>Reports all memory usage and leaks using <code>valgrind</code>.</li>
+<li>Modular structure with separate <code>.c</code> and <code>.h</code> files for:<ul>
+<li>Stack management.</li>
+<li>File handling.</li>
+<li>Solver logic.</li>
 </ul>
-</div></div><!-- PageDoc -->
+</li>
+<li>Clear and informative error messages and outputs.</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md5"></a>
+File Structure</h2>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Source Files</h3>
+<ul>
+<li>**<code><a class="el" href="file_8c.html">file.c</a></code> / <code><a class="el" href="file_8h.html" title="Header file for reading and managing a Latin square.">file.h</a></code>**: Handles reading the puzzle from a file and memory management of dynamic arrays.</li>
+<li>**<code><a class="el" href="stack_8c.html" title="Implementation of stack operations for managing nodes containing a Latin square board.">stack.c</a></code> / <code><a class="el" href="stack_8h.html" title="Header file for stack operations involving nodes containing a Latin square board.">stack.h</a></code>**: Manages the stack operations (push, pop, and memory deallocation).</li>
+<li>**<code><a class="el" href="solver_8c.html" title="Implementation of the Latin square puzzle-solving algorithm using backtracking and a stack.">solver.c</a></code> / <code><a class="el" href="solver_8h.html" title="Header file for the Latin square puzzle-solving algorithm.">solver.h</a></code>**: Implements the backtracking algorithm to solve the Latin Square.</li>
+<li>**<code><a class="el" href="latinSolver_8c.html" title="Main program for solving a Latin square puzzle using backtracking.">latinSolver.c</a></code>**: Contains the main function and integrates the modules.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Input Files (Testers)</h3>
+<ul>
+<li>**<code>lsq2.txt</code>**: Another example input file for a 4x4 Latin Square. <div class="fragment"><div class="line">4</div>
+<div class="line">0 0 0 -4</div>
+<div class="line">0 -2 0 0</div>
+<div class="line">0 0 0 0</div>
+<div class="line">0 0 0 -2</div>
+</div><!-- fragment --></li>
+<li>**<code>lsq3.txt</code>**: Example input file for a 4x4 Latin Square with some cells pre-filled. <div class="fragment"><div class="line">7</div>
+<div class="line">0 0 0 -4 0 -6 0</div>
+<div class="line">0 -2 0 0 -1 -7 0</div>
+<div class="line">0 -1 0 0 0 -3 0</div>
+<div class="line">0 0 0 -2 0 0 0</div>
+<div class="line">-6 -4 0 0 0 0 -1</div>
+<div class="line">0 0 0 0 0 0 0</div>
+<div class="line">-1 0 0 0 -5 0 -7</div>
+</div><!-- fragment --></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Output</h3>
+<ul>
+<li>The program prints the step-by-step solution to the console, including:<ul>
+<li>Current grid state for each step.</li>
+<li>Push and pop operations on the stack.</li>
+<li>Number of total <code>push</code> and <code>pop</code> operations performed when the puzzle is solved.</li>
+</ul>
+</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md10"></a>
+Compilation and Execution</h2>
+<h3><a class="anchor" id="autotoc_md11"></a>
+Compilation</h3>
+<p>To compile the program, use the provided <code>Makefile</code>: </p><div class="fragment"><div class="line">make</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
+Execution</h3>
+<p>Run the solver with an input file: </p><div class="fragment"><div class="line">./latinSolver &lt;input_file.txt&gt;</div>
+</div><!-- fragment --><p> Example: </p><div class="fragment"><div class="line">./latinSolver lsq1.txt</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md14"></a>
+Memory Management</h2>
+<p>All dynamically allocated memory is freed before program termination. Use <code>valgrind</code> to verify memory safety: </p><div class="fragment"><div class="line">valgrind --leak-check=full ./latinSolver &lt;input_file&gt;</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md16"></a>
+Doxygen Documentation</h2>
+<p>Doxygen comments are included throughout the source files. To generate documentation:</p><ol type="1">
+<li>Run the following command: <div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --></li>
+<li>Open the <code>html/index.html</code> file in your browser for detailed documentation.</li>
+</ol>
+<hr  />
+<h2><a class="anchor" id="autotoc_md18"></a>
+Example Outputs</h2>
+<h3><a class="anchor" id="autotoc_md19"></a>
+Input (&lt;tt&gt;lsq1.txt&lt;/tt&gt;):</h3>
+<div class="fragment"><div class="line">4</div>
+<div class="line">0 -2 0 -4</div>
+<div class="line">-2 -3 0 0</div>
+<div class="line">0 0 -1 -2</div>
+<div class="line">0 0 0 -3</div>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md20"></a>
+Output:</h3>
+<div class="fragment"><div class="line">PUSH: STEP 1</div>
+<div class="line">+-----+-----+-----+-----+</div>
+<div class="line">|  1  | (2) |  0  | (4) |</div>
+<div class="line">+-----+-----+-----+-----+</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">Congrats! Puzzle solved!</div>
+<div class="line">PUSH NUM: 9</div>
+<div class="line">POP NUM: 0</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md22"></a>
+Testing</h2>
+<p>Test the solver with provided input files (<code>lsq2.txt</code> and <code>lsq3.txt</code>) or create your own. Ensure the input format matches:</p><ol type="1">
+<li>The first line specifies the size ( n ) of the grid.</li>
+<li>Subsequent lines contain ( n ) integers per line, separated by spaces.</li>
+</ol>
+<hr  />
+ </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

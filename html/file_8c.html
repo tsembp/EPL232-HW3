@@ -105,28 +105,41 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">    3</span>                                        {</div>
-<div class="line"><span class="lineno">    4</span>    <span class="keywordflow">if</span> (array != NULL) {</div>
-<div class="line"><span class="lineno">    5</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
-<div class="line"><span class="lineno">    6</span>            free(array[i]);</div>
-<div class="line"><span class="lineno">    7</span>        }</div>
-<div class="line"><span class="lineno">    8</span>        </div>
-<div class="line"><span class="lineno">    9</span>        free(array);</div>
-<div class="line"><span class="lineno">   10</span>    }</div>
-<div class="line"><span class="lineno">   11</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>                                        {</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> (array != NULL) {</div>
+<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
+<div class="line"><span class="lineno">   25</span>            free(array[i]); <span class="comment">// free each column</span></div>
+<div class="line"><span class="lineno">   26</span>        }</div>
+<div class="line"><span class="lineno">   27</span>        </div>
+<div class="line"><span class="lineno">   28</span>        free(array); <span class="comment">// free every row</span></div>
+<div class="line"><span class="lineno">   29</span>    }</div>
+<div class="line"><span class="lineno">   30</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, and <a class="el" href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8h.html#aa26a98b6c2dfcb3eb650099dddc72687">freeNode()</a>, <a class="el" href="stack_8h.html#af3a5d67551fc5b24f786c42cbfaabb61">initNode()</a>, <a class="el" href="latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, and <a class="el" href="file_8h.html#a1a732cd98eca23e204f68a3e118cbec8">readLatinSquare()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="file_8c_ac96a37a21b083f0fdbe6ab1297787537_icgraph.png" border="0" usemap="#afile_8c_ac96a37a21b083f0fdbe6ab1297787537_icgraph" alt=""/></div>
 <map name="afile_8c_ac96a37a21b083f0fdbe6ab1297787537_icgraph" id="afile_8c_ac96a37a21b083f0fdbe6ab1297787537_icgraph">
-<area shape="rect" title="Frees a dynamically allocated 2D array." alt="" coords="284,5,385,31"/>
-<area shape="rect" href="latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,5,60,31"/>
-<area shape="poly" title=" " alt="" coords="271,21,60,21,60,15,271,15"/>
-<area shape="rect" href="file_8c.html#a1a732cd98eca23e204f68a3e118cbec8" title="Reads a Latin square from a file." alt="" coords="108,31,236,56"/>
-<area shape="poly" title=" " alt="" coords="271,31,236,36,236,31,270,25"/>
-<area shape="poly" title=" " alt="" coords="94,32,60,25,61,20,95,27"/>
+<area shape="rect" title="Frees a dynamically allocated 2D array." alt="" coords="628,80,729,105"/>
+<area shape="rect" href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687" title="Frees memory allocated for a node." alt="" coords="291,5,374,31"/>
+<area shape="poly" title=" " alt="" coords="645,75,614,58,579,45,525,32,469,25,374,20,374,15,469,19,526,27,581,39,616,53,648,70"/>
+<area shape="rect" href="latinSolver_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point of the Latin square puzzle solver program." alt="" coords="5,80,60,105"/>
+<area shape="poly" title=" " alt="" coords="614,95,60,95,60,90,614,90"/>
+<area shape="rect" href="stack_8c.html#a1fd32c77fb592f2bbf625ac0d23d3b46" title="Initializes a new node with a Latin square board and position." alt="" coords="477,55,555,80"/>
+<area shape="poly" title=" " alt="" coords="614,85,554,76,555,71,614,80"/>
+<area shape="rect" href="file_8c.html#a1a732cd98eca23e204f68a3e118cbec8" title="Reads a Latin square from a file." alt="" coords="452,156,580,181"/>
+<area shape="poly" title=" " alt="" coords="639,114,545,158,543,153,637,109"/>
+<area shape="rect" href="stack_8c.html#ad5ab12a5feb1e0209592933a1c4edfb8" title="Frees memory allocated for the entire stack." alt="" coords="119,5,203,31"/>
+<area shape="poly" title=" " alt="" coords="278,21,203,21,203,15,278,15"/>
+<area shape="rect" href="solver_8c.html#ac8b4cef2c4905a00bce5887f482b68bd" title="Solves the Latin square puzzle using backtracking." alt="" coords="108,55,213,80"/>
+<area shape="poly" title=" " alt="" coords="279,36,207,57,205,52,277,31"/>
+<area shape="poly" title=" " alt="" coords="119,39,109,44,53,82,50,78,107,40,116,35"/>
+<area shape="poly" title=" " alt="" coords="95,83,61,90,60,85,94,78"/>
+<area shape="rect" href="solver_8c.html#ade4cf4d969fe0a5aad6a6c43c8484bfc" title="Attempts to place a number in the next empty cell of the Latin square." alt="" coords="261,55,404,80"/>
+<area shape="poly" title=" " alt="" coords="464,70,404,70,404,65,464,65"/>
+<area shape="poly" title=" " alt="" coords="248,70,214,70,214,65,248,65"/>
+<area shape="poly" title=" " alt="" coords="438,176,367,176,283,171,194,160,107,139,75,125,49,108,52,103,78,120,109,134,195,155,284,166,367,170,438,170"/>
 </map>
 </div>
 
@@ -168,66 +181,66 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A dynamically allocated 2D array representing the Latin square, or NULL if an error occurs. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>{   </div>
-<div class="line"><span class="lineno">   15</span>    <span class="comment">// Open file for reading</span></div>
-<div class="line"><span class="lineno">   16</span>    FILE *fp = fopen(filename, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>    <span class="comment">// Check file pointer</span></div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">if</span> (fp == NULL)</div>
-<div class="line"><span class="lineno">   20</span>    {</div>
-<div class="line"><span class="lineno">   21</span>        perror(<span class="stringliteral">&quot;Error occurred while attempting to read from file.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   23</span>    }</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    <span class="comment">// Check n (size of latin square)</span></div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span> (fscanf(fp, <span class="stringliteral">&quot;%d&quot;</span>, size) != 1 || *size &lt;= 0 || *size &gt; <a class="code hl_define" href="file_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>)</div>
-<div class="line"><span class="lineno">   27</span>    { <span class="comment">// check fscanf return code and size&#39;s value</span></div>
-<div class="line"><span class="lineno">   28</span>        perror(<span class="stringliteral">&quot;Invalid size of Latin Square!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   29</span>        fclose(fp);</div>
-<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">return</span> NULL; <span class="comment">// close file and exit</span></div>
-<div class="line"><span class="lineno">   31</span>    }</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">int</span> **array = (<span class="keywordtype">int</span> **)malloc(*size * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span> *));</div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (array == NULL)</div>
-<div class="line"><span class="lineno">   35</span>    {</div>
-<div class="line"><span class="lineno">   36</span>        perror(<span class="stringliteral">&quot;Memory allocation for rows of 2D array failed.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   37</span>        fclose(fp);</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   39</span>    }</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; *size; i++)</div>
-<div class="line"><span class="lineno">   42</span>    {</div>
-<div class="line"><span class="lineno">   43</span>        array[i] = (<span class="keywordtype">int</span> *)malloc(*size * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">if</span> (array[i] == NULL)</div>
-<div class="line"><span class="lineno">   45</span>        {</div>
-<div class="line"><span class="lineno">   46</span>            perror(<span class="stringliteral">&quot;Memory allocation failed for columns.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   47</span>            <span class="comment">// Free previously allocated rows</span></div>
-<div class="line"><span class="lineno">   48</span>            <a class="code hl_function" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(array, i);</div>
-<div class="line"><span class="lineno">   49</span>            fclose(fp);</div>
-<div class="line"><span class="lineno">   50</span>            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   51</span>        }</div>
-<div class="line"><span class="lineno">   52</span>    }</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; *size; i++)</div>
-<div class="line"><span class="lineno">   55</span>    {</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; *size; j++)</div>
-<div class="line"><span class="lineno">   57</span>        {</div>
-<div class="line"><span class="lineno">   58</span>            <span class="keywordflow">if</span> (fscanf(fp, <span class="stringliteral">&quot;%d&quot;</span>, &amp;array[i][j]) != 1)</div>
-<div class="line"><span class="lineno">   59</span>            {</div>
-<div class="line"><span class="lineno">   60</span>                perror(<span class="stringliteral">&quot;Error reading data from file.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   61</span>                <span class="comment">// Free memory on failure</span></div>
-<div class="line"><span class="lineno">   62</span>                <a class="code hl_function" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(array, *size);</div>
-<div class="line"><span class="lineno">   63</span>                fclose(fp);</div>
-<div class="line"><span class="lineno">   64</span>                <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   65</span>            }</div>
-<div class="line"><span class="lineno">   66</span>        }</div>
-<div class="line"><span class="lineno">   67</span>    }</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>    fclose(fp);</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> array;</div>
-<div class="line"><span class="lineno">   71</span>}</div>
-<div class="ttc" id="afile_8c_html_ac96a37a21b083f0fdbe6ab1297787537"><div class="ttname"><a href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a></div><div class="ttdeci">void free2DArray(int **array, int size)</div><div class="ttdoc">Frees a dynamically allocated 2D array.</div><div class="ttdef"><b>Definition</b> file.c:3</div></div>
-<div class="ttc" id="afile_8h_html_a0240ac851181b84ac374872dc5434ee4"><div class="ttname"><a href="file_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a></div><div class="ttdeci">#define N</div><div class="ttdoc">Maximum size of the Latin square.</div><div class="ttdef"><b>Definition</b> file.h:19</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>{   </div>
+<div class="line"><span class="lineno">   35</span>    <span class="comment">// Open file for reading</span></div>
+<div class="line"><span class="lineno">   36</span>    FILE *fp = fopen(filename, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <span class="comment">// Check file pointer after attempting to open file</span></div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span> (fp == NULL)</div>
+<div class="line"><span class="lineno">   40</span>    {</div>
+<div class="line"><span class="lineno">   41</span>        perror(<span class="stringliteral">&quot;Error occurred while attempting to read from file.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <span class="comment">// Check n (size of latin square)</span></div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (fscanf(fp, <span class="stringliteral">&quot;%d&quot;</span>, size) != 1 || *size &lt;= 0 || *size &gt; <a class="code hl_define" href="file_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>) <span class="comment">// check fscanf return code and size&#39;s value</span></div>
+<div class="line"><span class="lineno">   47</span>    { </div>
+<div class="line"><span class="lineno">   48</span>        perror(<span class="stringliteral">&quot;Invalid size of Latin Square!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>        fclose(fp);</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> NULL; <span class="comment">// close file and exit</span></div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    <span class="comment">// Allocate memory for 2D array</span></div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordtype">int</span> **array = (<span class="keywordtype">int</span> **)malloc(*size * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span> *));</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">if</span> (array == NULL) <span class="comment">// check for incorrect memory allocation for rows</span></div>
+<div class="line"><span class="lineno">   56</span>    {</div>
+<div class="line"><span class="lineno">   57</span>        perror(<span class="stringliteral">&quot;Memory allocation for rows of 2D array failed.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   58</span>        fclose(fp);</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; *size; i++) <span class="comment">// allocate memory for columns</span></div>
+<div class="line"><span class="lineno">   63</span>    {</div>
+<div class="line"><span class="lineno">   64</span>        array[i] = (<span class="keywordtype">int</span> *)malloc(*size * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
+<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">if</span> (array[i] == NULL) <span class="comment">// check for incorrect memory allocation for columns</span></div>
+<div class="line"><span class="lineno">   66</span>        {</div>
+<div class="line"><span class="lineno">   67</span>            perror(<span class="stringliteral">&quot;Memory allocation failed for columns.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>            <a class="code hl_function" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(array, i); <span class="comment">// free previously allocated rows</span></div>
+<div class="line"><span class="lineno">   69</span>            fclose(fp);</div>
+<div class="line"><span class="lineno">   70</span>            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   71</span>        }</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>    <span class="comment">// Read initial latin square values from file</span></div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; *size; i++)</div>
+<div class="line"><span class="lineno">   76</span>    {</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; *size; j++)</div>
+<div class="line"><span class="lineno">   78</span>        {</div>
+<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">if</span> (fscanf(fp, <span class="stringliteral">&quot;%d&quot;</span>, &amp;array[i][j]) != 1) <span class="comment">// if read more than 1 argument =&gt; incorrect</span></div>
+<div class="line"><span class="lineno">   80</span>            {</div>
+<div class="line"><span class="lineno">   81</span>                perror(<span class="stringliteral">&quot;Error reading data from file.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   82</span>                <a class="code hl_function" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a>(array, *size); <span class="comment">// free allocated space for array</span></div>
+<div class="line"><span class="lineno">   83</span>                fclose(fp);</div>
+<div class="line"><span class="lineno">   84</span>                <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   85</span>            }</div>
+<div class="line"><span class="lineno">   86</span>        }</div>
+<div class="line"><span class="lineno">   87</span>    }</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    fclose(fp);</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">return</span> array;</div>
+<div class="line"><span class="lineno">   91</span>}</div>
+<div class="ttc" id="afile_8c_html_ac96a37a21b083f0fdbe6ab1297787537"><div class="ttname"><a href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a></div><div class="ttdeci">void free2DArray(int **array, int size)</div><div class="ttdoc">Frees a dynamically allocated 2D array.</div><div class="ttdef"><b>Definition</b> file.c:22</div></div>
+<div class="ttc" id="afile_8h_html_a0240ac851181b84ac374872dc5434ee4"><div class="ttname"><a href="file_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a></div><div class="ttdeci">#define N</div><div class="ttdoc">Maximum size of the Latin square.</div><div class="ttdef"><b>Definition</b> file.h:21</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="file_8c.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray()</a>, and <a class="el" href="file_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>.</p>
 

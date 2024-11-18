@@ -1,26 +1,32 @@
 /**
  * @file stack.c
- * 
+ *
  * @brief Implementation of stack operations for managing nodes containing a Latin square board.
- * 
+ *
  * This file provides the implementation of functions to initialize, manipulate, and free a stack
- * of nodes. Each node contains a dynamically allocated 2D array representing part of a Latin 
- * square, along with its position in the square. The stack supports basic operations like push, 
+ * of nodes. Each node contains a dynamically allocated 2D array representing part of a Latin
+ * square, along with its position in the square. The stack supports basic operations like push,
  * pop, and printing, as well as memory management functions for safe deallocation.
- * 
- * @authors 
+ *
+ * @authors
  * - Panagiotis Tsembekis
  * - Rafael Tsekouronas
+ *
+ * @bug No known bugs.
  */
 
 #include "stack.h"
+#include "file.h"
 
 int initStack(STACK **stack)
 {
     *stack = (STACK *)malloc(1 * sizeof(STACK));
-    if (stack == NULL)
+    if (stack == NULL) // handle improper memory allocation
+    {
         return EXIT_FAILURE;
+    }
 
+    // Initialize stack's values
     (*stack)->top = NULL;
     (*stack)->length = 0;
     return EXIT_SUCCESS;
@@ -29,31 +35,35 @@ int initStack(STACK **stack)
 int initNode(NODE **newNode, int **board, int row, int col, int size)
 {
     *newNode = (NODE *)malloc(sizeof(NODE));
-    if (*newNode == NULL) return EXIT_FAILURE;
+    if (*newNode == NULL) // handle improper memory allocation
+    {
+        return EXIT_FAILURE;
+    }
 
+    // Assign values to `newNode`
     (*newNode)->row = row;
     (*newNode)->col = col;
     (*newNode)->arraySize = size;
 
     // Allocate memory for the 2D array
     (*newNode)->square = (int **)malloc(size * sizeof(int *));
-    if ((*newNode)->square == NULL){ // handle improper memory allocation
+    if ((*newNode)->square == NULL)
+    { // handle improper memory allocation
         perror("Error: Memory allocation for new node's 2D array rows failed.\n");
-        free(*newNode);
+        free(*newNode); // free previously allocated space for node
         *newNode = NULL;
         return EXIT_FAILURE;
     }
 
+    // Allocate space for columns for 2D array of `newNode`
     for (int i = 0; i < size; i++)
     {
         (*newNode)->square[i] = (int *)malloc(size * sizeof(int));
-        if ((*newNode)->square[i] == NULL)
+        if ((*newNode)->square[i] == NULL) // handle improper memory allocation
         {
             perror("Error: Memory allocation for new node's 2D array columns failed.\n");
-            for (int j = 0; j < i; j++)
-            { // free previously allocated rows
-                free((*newNode)->square[j]);
-            }
+            // Free previously allocated space for 2D array and `node`
+            free2DArray((*newNode)->square, i);
             free((*newNode)->square);
             free(*newNode); // free newNode itself
             *newNode = NULL;
@@ -74,17 +84,18 @@ int initNode(NODE **newNode, int **board, int row, int col, int size)
 
 int push(STACK *stack, NODE *newNode)
 {
-    if (stack == NULL)
+    if (stack == NULL) // handle edge case of null stack
     {
         perror("Unable to push into stack | Stack is NULL.\n");
         return EXIT_FAILURE;
     }
 
-    if (newNode == NULL)
+    if (newNode == NULL) // handle edge case of null node passed in
     {
         perror("Unable to push into stack | newNode is NULL.\n");
     }
 
+    // Add node to stack
     newNode->next = stack->top;
     stack->top = newNode;
     (stack->length)++;
@@ -92,14 +103,15 @@ int push(STACK *stack, NODE *newNode)
     return EXIT_SUCCESS;
 }
 
-NODE* pop(STACK *stack)
+NODE *pop(STACK *stack)
 {
-    if (stack == NULL || stack->length == 0)
+    if (stack == NULL || stack->length == 0) // handle edge case of empty/null stack
     {
         perror("Unable to pop from stack | Empty or NULL stack.\n");
         return NULL;
     }
 
+    // Remove node at stack->top
     NODE *temp = stack->top;
     stack->top = temp->next;
     (stack->length)--;
@@ -107,44 +119,55 @@ NODE* pop(STACK *stack)
     return temp;
 }
 
-bool isEmpty(STACK *stack){
-    return (stack->length == 0);
+bool isEmpty(STACK *stack)
+{
+    return (stack->length == 0); // if length = 0 => empty stack
 }
 
-void printNode(NODE *node){
-    if(node == NULL){
+void printNode(NODE *node)
+{
+    if (node == NULL) // handle edge case of null node
+    {
         printf("Can't print node. Node is NULL!\n");
         return;
     }
 
     // Print top border for the node
-    for (int i = 0; i < node->arraySize; i++) {
+    for (int i = 0; i < node->arraySize; i++)
+    {
         printf("+-----");
     }
     printf("+\n");
 
     // Iterate over the 2D array and print each element with borders
-    for (int i = 0; i < node->arraySize; i++) {
-        for (int j = 0; j < node->arraySize; j++) {
-            if (node->square[i][j] < 0) { // negative values printed inside parentheses
+    for (int i = 0; i < node->arraySize; i++)
+    {
+        for (int j = 0; j < node->arraySize; j++)
+        {
+            if (node->square[i][j] < 0)
+            { // negative values printed inside parentheses
                 printf("| (%d) ", -node->square[i][j]);
-            } else { // normal values
+            }
+            else
+            { // normal values
                 printf("|  %d  ", node->square[i][j]);
             }
         }
         printf("|\n"); // end the row
 
         // Print bottom border for the current row
-        for (int k = 0; k < node->arraySize; k++) {
+        for (int k = 0; k < node->arraySize; k++)
+        {
             printf("+-----");
         }
         printf("+\n");
-
     }
 }
 
-void printStack(STACK *stack, int size) {
-    if (isEmpty(stack)) {
+void printStack(STACK *stack, int size)
+{
+    if (isEmpty(stack))
+    {
         printf("Stack is empty!\n");
         return;
     }
@@ -152,35 +175,35 @@ void printStack(STACK *stack, int size) {
     NODE *current = stack->top; // start from top element
     printf("Stack elements (from top to bottom):\n");
 
-    while (current != NULL) {
+    while (current != NULL)
+    {
         printf("Node (row: %d, col: %d):\n", current->row, current->col);
         printNode(current); // print node's contents
 
         printf("\n"); // separate nodes with a blank line
         current = current->next;
     }
-
 }
 
-void freeNode(NODE *node){
-    if (node != NULL) {
-        if (node->square != NULL) {
-            for (int i = 0; i < node->arraySize; i++) {
-                if (node->square[i] != NULL) {
-                    free(node->square[i]);
-                }
-            }
-            free(node->square);
+void freeNode(NODE *node)
+{
+    if (node != NULL)
+    {
+        if (node->square != NULL)
+        {
+            free2DArray(node->square, node->arraySize); // free 2D array
         }
 
-    free(node);
+        free(node); // free node itself
     }
 }
 
-void freeStack(STACK *stack){
-    while (!isEmpty(stack)) {
-        NODE *node = pop(stack);
-        freeNode(node);
+void freeStack(STACK *stack)
+{
+    while (!isEmpty(stack))
+    {
+        NODE *node = pop(stack); // pop top node
+        freeNode(node); // free top node
     }
 
     free(stack);
