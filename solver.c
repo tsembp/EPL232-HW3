@@ -184,3 +184,58 @@ bool findEmptyPosition(int **square, int size, int *row, int *col)
 
     return false; // if condition is reached -> solved! :)
 }
+
+
+#ifdef DEBUG_SOLVER
+
+int main() {
+    int size = 4; // Example size for the Latin square
+    int **square = (int **)malloc(size * sizeof(int *));
+    for (int i = 0; i < size; i++) {
+        square[i] = (int *)calloc(size, sizeof(int)); // Initialize all cells to 0
+    }
+
+    // Example pre-filled Latin square setup (0 indicates an empty cell)
+    square[0][0] = 1;
+    square[0][1] = 2;
+    square[1][0] = 2;
+    square[1][1] = 1;
+
+    printf("Initial Latin square:\n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", square[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    // Initialize the stack
+    STACK *stack = NULL;
+    if (initStack(&stack) != EXIT_SUCCESS) {
+        printf("Failed to initialize stack.\n");
+        free2DArray(square, size);
+        return 1;
+    }
+
+    int numPush = 0, numPop = 0;
+    // Solve the puzzle
+    if (puzzleSolver(stack, square, size, &numPush, &numPop)) {
+        printf("Latin square solved successfully:\n");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                printf("%d ", square[i][j]);
+            }
+            printf("\n");
+        }
+    } else {
+        printf("Failed to solve the Latin square.\n");
+    }
+
+    // Cleanup
+    free2DArray(square, size);
+    freeStack(stack);
+
+    return 0;
+}
+#endif

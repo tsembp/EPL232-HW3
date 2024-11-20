@@ -208,3 +208,72 @@ void freeStack(STACK *stack)
 
     free(stack);
 }
+
+
+#ifdef DEBUG_STACK
+
+int main() {
+    STACK *stack = NULL;
+
+    // Initialize the stack
+    if (initStack(&stack) != EXIT_SUCCESS) {
+        printf("Failed to initialize stack.\n");
+        return 1;
+    }
+    printf("Stack initialized successfully.\n");
+
+    // Create a 2D array to represent a Latin square node
+    int size = 3;
+    int **board = (int **)malloc(size * sizeof(int *));
+    for (int i = 0; i < size; i++) {
+        board[i] = (int *)malloc(size * sizeof(int));
+        for (int j = 0; j < size; j++) {
+            board[i][j] = (i + j + 1) % size + 1; // Simple Latin square
+        }
+    }
+
+    // Create and push nodes into the stack
+    for (int i = 0; i < 3; i++) {
+        NODE *node = NULL;
+        if (initNode(&node, board, i, i, size) != EXIT_SUCCESS) {
+            printf("Failed to initialize node %d.\n", i);
+        } else {
+            printf("Node %d initialized successfully.\n", i);
+            push(stack, node);
+            printf("Node %d pushed to stack.\n", i);
+        }
+    }
+
+    // Print the stack
+    printf("\nCurrent stack:\n");
+    printStack(stack, size);
+
+    // Pop and print nodes
+    for (int i = 0; i < 3; i++) {
+        NODE *node = pop(stack);
+        if (node != NULL) {
+            printf("\nPopped node (row: %d, col: %d):\n", node->row, node->col);
+            printNode(node);
+            freeNode(node);
+        } else {
+            printf("Failed to pop node %d.\n", i);
+        }
+    }
+
+    // Check if the stack is empty
+    if (isEmpty(stack)) {
+        printf("\nStack is now empty.\n");
+    } else {
+        printf("\nStack is not empty.\n");
+    }
+
+    // Free the stack
+    freeStack(stack);
+    printf("Stack freed successfully.\n");
+
+    // Free the test board
+    free2DArray(board, size);
+
+    return 0;
+}
+#endif

@@ -89,3 +89,36 @@ int **readLatinSquare(const char *filename, int *size)
     fclose(fp);
     return array;
 }
+
+
+#ifdef DEBUG_FILE
+
+int main() {
+    int size = 0;
+
+    // Provide a test file name
+    const char *testFile = "testLatinSquare.txt";
+    
+    // Call readLatinSquare function
+    int **latinSquare = readLatinSquare(testFile, &size);
+
+    if (latinSquare == NULL) {
+        printf("Failed to read the Latin square from file '%s'.\n", testFile);
+    } else {
+        printf("Successfully read a %d x %d Latin square from file '%s':\n", size, size, testFile);
+
+        // Print the Latin square
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                printf("%d ", latinSquare[i][j]);
+            }
+            printf("\n");
+        }
+
+        // Free the allocated memory
+        free2DArray(latinSquare, size);
+    }
+
+    return 0;
+}
+#endif
