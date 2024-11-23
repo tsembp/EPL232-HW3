@@ -1,0 +1,586 @@
+----- Valgrind Results For lsq0.txt -----
+
+ptsemb@Yoga7:~/EPL232/EPL232-HW3$ valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes ./latinSolver lsq0.txt
+==5831== Memcheck, a memory error detector
+==5831== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==5831== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==5831== Command: ./latinSolver lsq0.txt
+==5831== 
+PUSH: STEP 1
++-----+-----+-----+
+|  1  | (2) |  0  |
++-----+-----+-----+
+| (2) |  0  |  0  |
++-----+-----+-----+
+|  0  |  0  |  0  |
++-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (0,2).
+
+Error: Illegal value insertion! | Can't insert 2 at (0,2).
+PUSH: STEP 2
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  0  |  0  |
++-----+-----+-----+
+|  0  |  0  |  0  |
++-----+-----+-----+
+PUSH: STEP 3
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  1  |  0  |
++-----+-----+-----+
+|  0  |  0  |  0  |
++-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (1,2).
+
+Error: Illegal value insertion! | Can't insert 2 at (1,2).
+
+Error: Illegal value insertion! | Can't insert 3 at (1,2).
+POP: STEP 4
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  1  |  0  |
++-----+-----+-----+
+|  0  |  0  |  0  |
++-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 2 at (1,1).
+PUSH: STEP 5
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  3  |  0  |
++-----+-----+-----+
+|  0  |  0  |  0  |
++-----+-----+-----+
+PUSH: STEP 6
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  3  |  1  |
++-----+-----+-----+
+|  0  |  0  |  0  |
++-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,0).
+
+Error: Illegal value insertion! | Can't insert 2 at (2,0).
+PUSH: STEP 7
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  3  |  1  |
++-----+-----+-----+
+|  3  |  0  |  0  |
++-----+-----+-----+
+PUSH: STEP 8
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  3  |  1  |
++-----+-----+-----+
+|  3  |  1  |  0  |
++-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,2).
+PUSH: STEP 9
++-----+-----+-----+
+|  1  | (2) |  3  |
++-----+-----+-----+
+| (2) |  3  |  1  |
++-----+-----+-----+
+|  3  |  1  |  2  |
++-----+-----+-----+
+Congrats! Puzzle solved!
+PUSH NUM: 8
+POP NUM: 1
+==5831== 
+==5831== FILE DESCRIPTORS: 5 open (3 std) at exit.
+==5831== Open file descriptor 20: /home/ptsemb/.vscode-server/data/logs/20241123T224035/remoteagent.log
+==5831==    <inherited from parent>
+==5831== 
+==5831== Open file descriptor 19: /home/ptsemb/.vscode-server/data/logs/20241123T224035/ptyhost.log
+==5831==    <inherited from parent>
+==5831== 
+==5831== 
+==5831== HEAP SUMMARY:
+==5831==     in use at exit: 0 bytes in 0 blocks
+==5831==   total heap usage: 49 allocs, 49 frees, 6,420 bytes allocated
+==5831== 
+==5831== All heap blocks were freed -- no leaks are possible
+==5831== 
+==5831== For lists of detected and suppressed errors, rerun with: -s
+==5831== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+----- Valgrind Results For lsq1.txt -----
+
+ptsemb@Yoga7:~/EPL232/EPL232-HW3$ valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes ./latinSolver lsq1.txt
+==6494== Memcheck, a memory error detector
+==6494== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==6494== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==6494== Command: ./latinSolver lsq1.txt
+==6494== 
+PUSH: STEP 1
++-----+-----+-----+-----+
+|  1  | (2) |  0  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  | (1) | (2) |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (0,2).
+
+Error: Illegal value insertion! | Can't insert 2 at (0,2).
+PUSH: STEP 2
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  | (1) | (2) |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (1,2).
+
+Error: Illegal value insertion! | Can't insert 2 at (1,2).
+
+Error: Illegal value insertion! | Can't insert 3 at (1,2).
+PUSH: STEP 3
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  | (1) | (2) |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+PUSH: STEP 4
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  1  |
++-----+-----+-----+-----+
+|  0  |  0  | (1) | (2) |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,0).
+
+Error: Illegal value insertion! | Can't insert 2 at (2,0).
+PUSH: STEP 5
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  1  |
++-----+-----+-----+-----+
+|  3  |  0  | (1) | (2) |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,1).
+
+Error: Illegal value insertion! | Can't insert 2 at (2,1).
+
+Error: Illegal value insertion! | Can't insert 3 at (2,1).
+PUSH: STEP 6
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  1  |
++-----+-----+-----+-----+
+|  3  |  4  | (1) | (2) |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (3,0).
+
+Error: Illegal value insertion! | Can't insert 2 at (3,0).
+
+Error: Illegal value insertion! | Can't insert 3 at (3,0).
+PUSH: STEP 7
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  1  |
++-----+-----+-----+-----+
+|  3  |  4  | (1) | (2) |
++-----+-----+-----+-----+
+|  4  |  0  |  0  | (3) |
++-----+-----+-----+-----+
+PUSH: STEP 8
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  1  |
++-----+-----+-----+-----+
+|  3  |  4  | (1) | (2) |
++-----+-----+-----+-----+
+|  4  |  1  |  0  | (3) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (3,2).
+PUSH: STEP 9
++-----+-----+-----+-----+
+|  1  | (2) |  3  | (4) |
++-----+-----+-----+-----+
+| (2) | (3) |  4  |  1  |
++-----+-----+-----+-----+
+|  3  |  4  | (1) | (2) |
++-----+-----+-----+-----+
+|  4  |  1  |  2  | (3) |
++-----+-----+-----+-----+
+Congrats! Puzzle solved!
+PUSH NUM: 9
+POP NUM: 0
+==6494== 
+==6494== FILE DESCRIPTORS: 5 open (3 std) at exit.
+==6494== Open file descriptor 20: /home/ptsemb/.vscode-server/data/logs/20241123T224035/remoteagent.log
+==6494==    <inherited from parent>
+==6494== 
+==6494== Open file descriptor 19: /home/ptsemb/.vscode-server/data/logs/20241123T224035/ptyhost.log
+==6494==    <inherited from parent>
+==6494== 
+==6494== 
+==6494== HEAP SUMMARY:
+==6494==     in use at exit: 0 bytes in 0 blocks
+==6494==   total heap usage: 64 allocs, 64 frees, 6,876 bytes allocated
+==6494== 
+==6494== All heap blocks were freed -- no leaks are possible
+==6494== 
+==6494== For lists of detected and suppressed errors, rerun with: -s
+==6494== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+----- Valgrind Results For lsq2.txt -----
+
+ptsemb@Yoga7:~/EPL232/EPL232-HW3$ valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes ./latinSolver lsq2.txt
+==6673== Memcheck, a memory error detector
+==6673== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==6673== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==6673== Command: ./latinSolver lsq2.txt
+==6673== 
+PUSH: STEP 1
++-----+-----+-----+-----+
+|  1  |  0  |  0  | (4) |
++-----+-----+-----+-----+
+|  0  | (2) |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (0,1).
+
+Error: Illegal value insertion! | Can't insert 2 at (0,1).
+PUSH: STEP 2
++-----+-----+-----+-----+
+|  1  |  3  |  0  | (4) |
++-----+-----+-----+-----+
+|  0  | (2) |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (0,2).
+PUSH: STEP 3
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  0  | (2) |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (1,0).
+
+Error: Illegal value insertion! | Can't insert 2 at (1,0).
+PUSH: STEP 4
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+PUSH: STEP 5
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  1  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (1,3).
+
+Error: Illegal value insertion! | Can't insert 2 at (1,3).
+
+Error: Illegal value insertion! | Can't insert 3 at (1,3).
+
+Error: Illegal value insertion! | Can't insert 4 at (1,3).
+POP: STEP 6
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  1  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 2 at (1,2).
+
+Error: Illegal value insertion! | Can't insert 3 at (1,2).
+PUSH: STEP 7
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+PUSH: STEP 8
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,0).
+PUSH: STEP 9
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  0  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+PUSH: STEP 10
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  1  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,2).
+
+Error: Illegal value insertion! | Can't insert 2 at (2,2).
+PUSH: STEP 11
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  1  |  3  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,3).
+
+Error: Illegal value insertion! | Can't insert 2 at (2,3).
+
+Error: Illegal value insertion! | Can't insert 3 at (2,3).
+
+Error: Illegal value insertion! | Can't insert 4 at (2,3).
+POP: STEP 12
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  1  |  3  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 4 at (2,2).
+POP: STEP 13
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  1  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 2 at (2,1).
+
+Error: Illegal value insertion! | Can't insert 3 at (2,1).
+PUSH: STEP 14
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  4  |  0  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+PUSH: STEP 15
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  4  |  1  |  0  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (2,3).
+
+Error: Illegal value insertion! | Can't insert 2 at (2,3).
+PUSH: STEP 16
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  4  |  1  |  3  |
++-----+-----+-----+-----+
+|  0  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (3,0).
+
+Error: Illegal value insertion! | Can't insert 2 at (3,0).
+
+Error: Illegal value insertion! | Can't insert 3 at (3,0).
+PUSH: STEP 17
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  4  |  1  |  3  |
++-----+-----+-----+-----+
+|  4  |  0  |  0  | (2) |
++-----+-----+-----+-----+
+PUSH: STEP 18
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  4  |  1  |  3  |
++-----+-----+-----+-----+
+|  4  |  1  |  0  | (2) |
++-----+-----+-----+-----+
+
+Error: Illegal value insertion! | Can't insert 1 at (3,2).
+
+Error: Illegal value insertion! | Can't insert 2 at (3,2).
+PUSH: STEP 19
++-----+-----+-----+-----+
+|  1  |  3  |  2  | (4) |
++-----+-----+-----+-----+
+|  3  | (2) |  4  |  1  |
++-----+-----+-----+-----+
+|  2  |  4  |  1  |  3  |
++-----+-----+-----+-----+
+|  4  |  1  |  3  | (2) |
++-----+-----+-----+-----+
+Congrats! Puzzle solved!
+PUSH NUM: 16
+POP NUM: 3
+==6673== 
+==6673== FILE DESCRIPTORS: 5 open (3 std) at exit.
+==6673== Open file descriptor 20: /home/ptsemb/.vscode-server/data/logs/20241123T224035/remoteagent.log
+==6673==    <inherited from parent>
+==6673== 
+==6673== Open file descriptor 19: /home/ptsemb/.vscode-server/data/logs/20241123T224035/ptyhost.log
+==6673==    <inherited from parent>
+==6673== 
+==6673== 
+==6673== HEAP SUMMARY:
+==6673==     in use at exit: 0 bytes in 0 blocks
+==6673==   total heap usage: 106 allocs, 106 frees, 7,772 bytes allocated
+==6673== 
+==6673== All heap blocks were freed -- no leaks are possible
+==6673== 
+==6673== For lists of detected and suppressed errors, rerun with: -s
+==6673== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+----- Valgrind Results For lsq3.txt -----
+
+==6974== Memcheck, a memory error detector
+==6974== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==6974== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==6974== Command: ./latinSolver lsq3.txt
+==6974== 
+
+Error: Illegal value insertion! | Can't insert 1 at (0,0).
+PUSH: STEP 1
++-----+-----+-----+-----+-----+-----+-----+
+|  2  |  0  |  0  | (4) |  0  | (6) |  0  |
++-----+-----+-----+-----+-----+-----+-----+
+|  0  | (2) |  0  |  0  | (1) | (7) |  0  |
++-----+-----+-----+-----+-----+-----+-----+
+
+...
+
++-----+-----+-----+-----+-----+-----+-----+
+| (1) |  6  |  2  |  3  | (5) |  4  | (7) |
++-----+-----+-----+-----+-----+-----+-----+
+Congrats! Puzzle solved!
+PUSH NUM: 629
+POP NUM: 594
+
+==6812== 
+==6812== FILE DESCRIPTORS: 5 open (3 std) at exit.
+==6812== Open file descriptor 20: /home/ptsemb/.vscode-server/data/logs/20241123T224035/remoteagent.log
+==6812==    <inherited from parent>
+==6812== 
+==6812== Open file descriptor 19: /home/ptsemb/.vscode-server/data/logs/20241123T224035/ptyhost.log
+==6812==    <inherited from parent>
+==6812== 
+==6812== 
+==6812== HEAP SUMMARY:
+==6812==     in use at exit: 0 bytes in 0 blocks
+==6812==   total heap usage: 5,674 allocs, 5,674 frees, 184,528 bytes allocated
+==6812== 
+==6812== All heap blocks were freed -- no leaks are possible
+==6812== 
+==6812== For lists of detected and suppressed errors, rerun with: -s
+==6812== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

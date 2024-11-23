@@ -77,7 +77,7 @@ bool attemptPlacement(STACK *stack, int **square, int size, int *numPush, int *s
             }
 
             memset(triedNumbers, 0, (size + 1) * sizeof(int)); // reset tried numbers for next function call
-            return true; // successfull placement            
+            return true;                                       // successfull placement
         }
         else // not safe insertion
         {
@@ -95,7 +95,7 @@ bool puzzleSolver(STACK *stack, int **square, int size, int *numPush, int *numPo
     int *triedNumbers = (int *)calloc(size + 1, sizeof(int)); // dynamic array initialized to 0
 
     while (findEmptyPosition(square, size, &rowIndex, &colIndex)) // while `square` is not filled
-    { 
+    {
         // Attempt placemenet
         bool placed = attemptPlacement(stack, square, size, numPush, &stepsNum, &rowIndex, &colIndex, triedNumbers, 1);
 
@@ -185,13 +185,14 @@ bool findEmptyPosition(int **square, int size, int *row, int *col)
     return false; // if condition is reached -> solved! :)
 }
 
-
 #ifdef DEBUG_SOLVER
 
-int main() {
+int main()
+{
     int size = 4; // Example size for the Latin square
     int **square = (int **)malloc(size * sizeof(int *));
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         square[i] = (int *)calloc(size, sizeof(int)); // Initialize all cells to 0
     }
 
@@ -202,8 +203,10 @@ int main() {
     square[1][1] = 1;
 
     printf("Initial Latin square:\n");
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
             printf("%d ", square[i][j]);
         }
         printf("\n");
@@ -212,7 +215,8 @@ int main() {
 
     // Initialize the stack
     STACK *stack = NULL;
-    if (initStack(&stack) != EXIT_SUCCESS) {
+    if (initStack(&stack) != EXIT_SUCCESS)
+    {
         printf("Failed to initialize stack.\n");
         free2DArray(square, size);
         return 1;
@@ -220,15 +224,20 @@ int main() {
 
     int numPush = 0, numPop = 0;
     // Solve the puzzle
-    if (puzzleSolver(stack, square, size, &numPush, &numPop)) {
+    if (puzzleSolver(stack, square, size, &numPush, &numPop))
+    {
         printf("Latin square solved successfully:\n");
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
                 printf("%d ", square[i][j]);
             }
             printf("\n");
         }
-    } else {
+    }
+    else
+    {
         printf("Failed to solve the Latin square.\n");
     }
 

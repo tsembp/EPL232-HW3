@@ -203,20 +203,21 @@ void freeStack(STACK *stack)
     while (!isEmpty(stack))
     {
         NODE *node = pop(stack); // pop top node
-        freeNode(node); // free top node
+        freeNode(node);          // free top node
     }
 
     free(stack);
 }
 
-
 #ifdef DEBUG_STACK
 
-int main() {
+int main()
+{
     STACK *stack = NULL;
 
     // Initialize the stack
-    if (initStack(&stack) != EXIT_SUCCESS) {
+    if (initStack(&stack) != EXIT_SUCCESS)
+    {
         printf("Failed to initialize stack.\n");
         return 1;
     }
@@ -225,19 +226,25 @@ int main() {
     // Create a 2D array to represent a Latin square node
     int size = 3;
     int **board = (int **)malloc(size * sizeof(int *));
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         board[i] = (int *)malloc(size * sizeof(int));
-        for (int j = 0; j < size; j++) {
+        for (int j = 0; j < size; j++)
+        {
             board[i][j] = (i + j + 1) % size + 1; // Simple Latin square
         }
     }
 
     // Create and push nodes into the stack
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         NODE *node = NULL;
-        if (initNode(&node, board, i, i, size) != EXIT_SUCCESS) {
+        if (initNode(&node, board, i, i, size) != EXIT_SUCCESS)
+        {
             printf("Failed to initialize node %d.\n", i);
-        } else {
+        }
+        else
+        {
             printf("Node %d initialized successfully.\n", i);
             push(stack, node);
             printf("Node %d pushed to stack.\n", i);
@@ -249,21 +256,28 @@ int main() {
     printStack(stack, size);
 
     // Pop and print nodes
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         NODE *node = pop(stack);
-        if (node != NULL) {
+        if (node != NULL)
+        {
             printf("\nPopped node (row: %d, col: %d):\n", node->row, node->col);
             printNode(node);
             freeNode(node);
-        } else {
+        }
+        else
+        {
             printf("Failed to pop node %d.\n", i);
         }
     }
 
     // Check if the stack is empty
-    if (isEmpty(stack)) {
+    if (isEmpty(stack))
+    {
         printf("\nStack is now empty.\n");
-    } else {
+    }
+    else
+    {
         printf("\nStack is not empty.\n");
     }
 

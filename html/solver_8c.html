@@ -220,7 +220,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   77</span>            }</div>
 <div class="line"><span class="lineno">   78</span> </div>
 <div class="line"><span class="lineno">   79</span>            memset(triedNumbers, 0, (size + 1) * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>)); <span class="comment">// reset tried numbers for next function call</span></div>
-<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// successfull placement            </span></div>
+<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;                                       <span class="comment">// successfull placement</span></div>
 <div class="line"><span class="lineno">   81</span>        }</div>
 <div class="line"><span class="lineno">   82</span>        <span class="keywordflow">else</span> <span class="comment">// not safe insertion</span></div>
 <div class="line"><span class="lineno">   83</span>        {</div>
@@ -235,12 +235,12 @@ Functions</h2></td></tr>
 <div class="ttc" id="astack_8h_html_ab4eb36cee3d609f62246fe6b17b9194d"><div class="ttname"><a href="stack_8h.html#ab4eb36cee3d609f62246fe6b17b9194d">push</a></div><div class="ttdeci">int push(STACK *stack, NODE *newNode)</div><div class="ttdoc">Pushes a node onto the stack.</div><div class="ttdef"><b>Definition</b> stack.c:85</div></div>
 <div class="ttc" id="astack_8h_html_af3a5d67551fc5b24f786c42cbfaabb61"><div class="ttname"><a href="stack_8h.html#af3a5d67551fc5b24f786c42cbfaabb61">initNode</a></div><div class="ttdeci">int initNode(NODE **newNode, int **square, int row, int col, int size)</div><div class="ttdoc">Initializes a new node with a Latin square board and position.</div><div class="ttdef"><b>Definition</b> stack.c:35</div></div>
 <div class="ttc" id="astructNODE_html"><div class="ttname"><a href="structNODE.html">NODE</a></div><div class="ttdoc">Represents a node in the stack containing a Latin square board.</div></div>
-<div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition</b> stack.h:30</div></div>
-<div class="ttc" id="astructnode_html_a8b0bb55276feeac5c6f9acf48fd1911b"><div class="ttname"><a href="structnode.html#a8b0bb55276feeac5c6f9acf48fd1911b">node::square</a></div><div class="ttdeci">int ** square</div><div class="ttdef"><b>Definition</b> stack.h:31</div></div>
-<div class="ttc" id="astructnode_html_acb218f3a39f6e862e14fd2108f7ba81e"><div class="ttname"><a href="structnode.html#acb218f3a39f6e862e14fd2108f7ba81e">node::row</a></div><div class="ttdeci">int row</div><div class="ttdef"><b>Definition</b> stack.h:32</div></div>
-<div class="ttc" id="astructnode_html_adb3af031da01559f97ce41ec73dfedcc"><div class="ttname"><a href="structnode.html#adb3af031da01559f97ce41ec73dfedcc">node::col</a></div><div class="ttdeci">int col</div><div class="ttdef"><b>Definition</b> stack.h:33</div></div>
-<div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdef"><b>Definition</b> stack.h:45</div></div>
-<div class="ttc" id="astructstack_html_a76270dcdcd278ed299280d67d445c88a"><div class="ttname"><a href="structstack.html#a76270dcdcd278ed299280d67d445c88a">stack::top</a></div><div class="ttdeci">NODE * top</div><div class="ttdef"><b>Definition</b> stack.h:46</div></div>
+<div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition</b> stack.h:31</div></div>
+<div class="ttc" id="astructnode_html_a8b0bb55276feeac5c6f9acf48fd1911b"><div class="ttname"><a href="structnode.html#a8b0bb55276feeac5c6f9acf48fd1911b">node::square</a></div><div class="ttdeci">int ** square</div><div class="ttdef"><b>Definition</b> stack.h:32</div></div>
+<div class="ttc" id="astructnode_html_acb218f3a39f6e862e14fd2108f7ba81e"><div class="ttname"><a href="structnode.html#acb218f3a39f6e862e14fd2108f7ba81e">node::row</a></div><div class="ttdeci">int row</div><div class="ttdef"><b>Definition</b> stack.h:33</div></div>
+<div class="ttc" id="astructnode_html_adb3af031da01559f97ce41ec73dfedcc"><div class="ttname"><a href="structnode.html#adb3af031da01559f97ce41ec73dfedcc">node::col</a></div><div class="ttdeci">int col</div><div class="ttdef"><b>Definition</b> stack.h:34</div></div>
+<div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdef"><b>Definition</b> stack.h:47</div></div>
+<div class="ttc" id="astructstack_html_a76270dcdcd278ed299280d67d445c88a"><div class="ttname"><a href="structstack.html#a76270dcdcd278ed299280d67d445c88a">stack::top</a></div><div class="ttdeci">NODE * top</div><div class="ttdef"><b>Definition</b> stack.h:48</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structnode.html#adb3af031da01559f97ce41ec73dfedcc">node::col</a>, <a class="el" href="stack_8h.html#af3a5d67551fc5b24f786c42cbfaabb61">initNode()</a>, <a class="el" href="solver_8c.html#a8938663979444440c14d82d4493f14cc">isSafe()</a>, <a class="el" href="stack_8h.html#a0c1cfe68ecfaee0e4d2561a0feedd0a2">printNode()</a>, <a class="el" href="stack_8h.html#ab4eb36cee3d609f62246fe6b17b9194d">push()</a>, <a class="el" href="structnode.html#acb218f3a39f6e862e14fd2108f7ba81e">node::row</a>, <a class="el" href="structnode.html#a8b0bb55276feeac5c6f9acf48fd1911b">node::square</a>, and <a class="el" href="structstack.html#a76270dcdcd278ed299280d67d445c88a">stack::top</a>.</p>
 
@@ -522,7 +522,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   95</span>    <span class="keywordtype">int</span> *triedNumbers = (<span class="keywordtype">int</span> *)calloc(size + 1, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>)); <span class="comment">// dynamic array initialized to 0</span></div>
 <div class="line"><span class="lineno">   96</span> </div>
 <div class="line"><span class="lineno">   97</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="solver_8c.html#a21facac8b822b08eec25507a154d2fb0">findEmptyPosition</a>(square, size, &amp;rowIndex, &amp;colIndex)) <span class="comment">// while `square` is not filled</span></div>
-<div class="line"><span class="lineno">   98</span>    { </div>
+<div class="line"><span class="lineno">   98</span>    {</div>
 <div class="line"><span class="lineno">   99</span>        <span class="comment">// Attempt placemenet</span></div>
 <div class="line"><span class="lineno">  100</span>        <span class="keywordtype">bool</span> placed = <a class="code hl_function" href="solver_8c.html#ade4cf4d969fe0a5aad6a6c43c8484bfc">attemptPlacement</a>(<a class="code hl_struct" href="structstack.html">stack</a>, square, size, numPush, &amp;stepsNum, &amp;rowIndex, &amp;colIndex, triedNumbers, 1);</div>
 <div class="line"><span class="lineno">  101</span> </div>

@@ -19,6 +19,7 @@ This project implements a backtracking algorithm using a stack to solve the Lati
   - File handling.
   - Solver logic.
 - Clear and informative error messages and outputs.
+- Handling of invalid .txt files passed in arguments for initial tableau.
 
 ---
 

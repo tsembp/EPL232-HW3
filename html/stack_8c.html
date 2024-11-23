@@ -146,9 +146,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  198</span>    }</div>
 <div class="line"><span class="lineno">  199</span>}</div>
 <div class="ttc" id="afile_8h_html_ac96a37a21b083f0fdbe6ab1297787537"><div class="ttname"><a href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray</a></div><div class="ttdeci">void free2DArray(int **array, int size)</div><div class="ttdoc">Frees a dynamically allocated 2D array.</div><div class="ttdef"><b>Definition</b> file.c:22</div></div>
-<div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition</b> stack.h:30</div></div>
-<div class="ttc" id="astructnode_html_a8b0bb55276feeac5c6f9acf48fd1911b"><div class="ttname"><a href="structnode.html#a8b0bb55276feeac5c6f9acf48fd1911b">node::square</a></div><div class="ttdeci">int ** square</div><div class="ttdef"><b>Definition</b> stack.h:31</div></div>
-<div class="ttc" id="astructnode_html_afd888a74821cab53ca33790468501d94"><div class="ttname"><a href="structnode.html#afd888a74821cab53ca33790468501d94">node::arraySize</a></div><div class="ttdeci">int arraySize</div><div class="ttdef"><b>Definition</b> stack.h:34</div></div>
+<div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition</b> stack.h:31</div></div>
+<div class="ttc" id="astructnode_html_a8b0bb55276feeac5c6f9acf48fd1911b"><div class="ttname"><a href="structnode.html#a8b0bb55276feeac5c6f9acf48fd1911b">node::square</a></div><div class="ttdeci">int ** square</div><div class="ttdef"><b>Definition</b> stack.h:32</div></div>
+<div class="ttc" id="astructnode_html_afd888a74821cab53ca33790468501d94"><div class="ttname"><a href="structnode.html#afd888a74821cab53ca33790468501d94">node::arraySize</a></div><div class="ttdeci">int arraySize</div><div class="ttdef"><b>Definition</b> stack.h:35</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structnode.html#afd888a74821cab53ca33790468501d94">node::arraySize</a>, <a class="el" href="file_8h.html#ac96a37a21b083f0fdbe6ab1297787537">free2DArray()</a>, and <a class="el" href="structnode.html#a8b0bb55276feeac5c6f9acf48fd1911b">node::square</a>.</p>
 
@@ -209,7 +209,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  203</span>    <span class="keywordflow">while</span> (!<a class="code hl_function" href="stack_8c.html#a0eaf530a550749fa1c8ba1ea6dddedf2">isEmpty</a>(<a class="code hl_struct" href="structstack.html">stack</a>))</div>
 <div class="line"><span class="lineno">  204</span>    {</div>
 <div class="line"><span class="lineno">  205</span>        <a class="code hl_struct" href="structNODE.html">NODE</a> *<a class="code hl_struct" href="structnode.html">node</a> = <a class="code hl_function" href="stack_8c.html#af2d95a87d1335088b9ffbd3079aa5863">pop</a>(<a class="code hl_struct" href="structstack.html">stack</a>); <span class="comment">// pop top node</span></div>
-<div class="line"><span class="lineno">  206</span>        <a class="code hl_function" href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687">freeNode</a>(<a class="code hl_struct" href="structnode.html">node</a>); <span class="comment">// free top node</span></div>
+<div class="line"><span class="lineno">  206</span>        <a class="code hl_function" href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687">freeNode</a>(<a class="code hl_struct" href="structnode.html">node</a>);          <span class="comment">// free top node</span></div>
 <div class="line"><span class="lineno">  207</span>    }</div>
 <div class="line"><span class="lineno">  208</span> </div>
 <div class="line"><span class="lineno">  209</span>    free(<a class="code hl_struct" href="structstack.html">stack</a>);</div>
@@ -218,7 +218,7 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="astack_8c_html_aa26a98b6c2dfcb3eb650099dddc72687"><div class="ttname"><a href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687">freeNode</a></div><div class="ttdeci">void freeNode(NODE *node)</div><div class="ttdoc">Frees memory allocated for a node.</div><div class="ttdef"><b>Definition</b> stack.c:188</div></div>
 <div class="ttc" id="astack_8c_html_af2d95a87d1335088b9ffbd3079aa5863"><div class="ttname"><a href="stack_8c.html#af2d95a87d1335088b9ffbd3079aa5863">pop</a></div><div class="ttdeci">NODE * pop(STACK *stack)</div><div class="ttdoc">Pops a node from the stack.</div><div class="ttdef"><b>Definition</b> stack.c:106</div></div>
 <div class="ttc" id="astructNODE_html"><div class="ttname"><a href="structNODE.html">NODE</a></div><div class="ttdoc">Represents a node in the stack containing a Latin square board.</div></div>
-<div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdef"><b>Definition</b> stack.h:45</div></div>
+<div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdef"><b>Definition</b> stack.h:47</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="stack_8c.html#aa26a98b6c2dfcb3eb650099dddc72687">freeNode()</a>, <a class="el" href="stack_8c.html#a0eaf530a550749fa1c8ba1ea6dddedf2">isEmpty()</a>, and <a class="el" href="stack_8c.html#af2d95a87d1335088b9ffbd3079aa5863">pop()</a>.</p>
 
@@ -426,7 +426,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
 <div class="line"><span class="lineno">   33</span>}</div>
 <div class="ttc" id="astructSTACK_html"><div class="ttname"><a href="structSTACK.html">STACK</a></div><div class="ttdoc">Represents a stack data structure for managing NODE elements.</div></div>
-<div class="ttc" id="astructstack_html_a76270dcdcd278ed299280d67d445c88a"><div class="ttname"><a href="structstack.html#a76270dcdcd278ed299280d67d445c88a">stack::top</a></div><div class="ttdeci">NODE * top</div><div class="ttdef"><b>Definition</b> stack.h:46</div></div>
+<div class="ttc" id="astructstack_html_a76270dcdcd278ed299280d67d445c88a"><div class="ttname"><a href="structstack.html#a76270dcdcd278ed299280d67d445c88a">stack::top</a></div><div class="ttdeci">NODE * top</div><div class="ttdef"><b>Definition</b> stack.h:48</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structstack.html#a76270dcdcd278ed299280d67d445c88a">stack::top</a>.</p>
 
@@ -472,7 +472,7 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
 <div class="line"><span class="lineno">  124</span>    <span class="keywordflow">return</span> (<a class="code hl_struct" href="structstack.html">stack</a>-&gt;<a class="code hl_variable" href="structstack.html#a12811b33098416e822534d1e8b144ff2">length</a> == 0); <span class="comment">// if length = 0 =&gt; empty stack</span></div>
 <div class="line"><span class="lineno">  125</span>}</div>
-<div class="ttc" id="astructstack_html_a12811b33098416e822534d1e8b144ff2"><div class="ttname"><a href="structstack.html#a12811b33098416e822534d1e8b144ff2">stack::length</a></div><div class="ttdeci">int length</div><div class="ttdef"><b>Definition</b> stack.h:47</div></div>
+<div class="ttc" id="astructstack_html_a12811b33098416e822534d1e8b144ff2"><div class="ttname"><a href="structstack.html#a12811b33098416e822534d1e8b144ff2">stack::length</a></div><div class="ttdeci">int length</div><div class="ttdef"><b>Definition</b> stack.h:49</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structstack.html#a12811b33098416e822534d1e8b144ff2">stack::length</a>.</p>
 
