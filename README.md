@@ -2,7 +2,7 @@
 # EPL232 - Assignment 3 - Latin Square Solver
 
 ## Overview
-A collaborative project by Panagiotis Tsembekis and Rafail Tsekouronas.
+A collaborative project by Panagiotis Tsembekis (UC1070326) and Rafael Tsekouronas (UC1070153).
 
 This project implements a backtracking algorithm using a stack to solve the Latin Square puzzle. A Latin Square is an \( n \times n \) grid where each row and column contains the numbers from 1 to \( n \) exactly once. The program reads an initial puzzle configuration from a file, solves it, and outputs the solution step-by-step.
 
