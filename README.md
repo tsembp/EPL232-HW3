@@ -1,14 +1,14 @@
 @mainpage
-# EPL232 - Assignment 3 - Latin Square Solver
+# EPL232 - Assignment 3 - Latin Square Solver 🧩
 
-## Overview
+## 📝 Overview
 A collaborative project by Panagiotis Tsembekis (UC1070326) and Rafael Tsekouronas (UC1070153).
 
 This project implements a backtracking algorithm using a stack to solve the Latin Square puzzle. A Latin Square is an \( n \times n \) grid where each row and column contains the numbers from 1 to \( n \) exactly once. The program reads an initial puzzle configuration from a file, solves it, and outputs the solution step-by-step.
 
 ---
 
-## Features
+## 🛠️ Features
 - Backtracking algorithm for puzzle solving.
 - Dynamically allocated 2D arrays for grid representation.
 - Stack-based backtracking to explore possible solutions.
@@ -23,7 +23,7 @@ This project implements a backtracking algorithm using a stack to solve the Lati
 
 ---
 
-## File Structure
+## 🏗️ File Structure
 ### Source Files
 - **`file.c` / `file.h`**: Handles reading the puzzle from a file and memory management of dynamic arrays.
 - **`stack.c` / `stack.h`**: Manages the stack operations (push, pop, and memory deallocation).
@@ -59,7 +59,7 @@ This project implements a backtracking algorithm using a stack to solve the Lati
 
 ---
 
-## Compilation and Execution
+## 🏃 Compilation and Execution
 ### Compilation
 To compile the program, use the provided `Makefile`:
 ```bash
@@ -78,7 +78,7 @@ Example:
 
 ---
 
-## Memory Management
+## 🎞️ Memory Management
 All dynamically allocated memory is freed before program termination. Use `valgrind` to verify memory safety:
 ```bash
 valgrind --leak-check=full ./latinSolver <input_file>
@@ -86,7 +86,7 @@ valgrind --leak-check=full ./latinSolver <input_file>
 
 ---
 
-## Doxygen Documentation
+## 📄 Doxygen Documentation
 Doxygen comments are included throughout the source files. To generate documentation:
 1. Run the following command:
    ```bash
